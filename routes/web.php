@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/fonts', function () {
+    return view('fonts');
+});
+
+Route::get('/fonts/{font}', function ($font) {
+    return view('font-sample', ['fontName' => $font]);
+});
