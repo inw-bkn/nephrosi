@@ -20,9 +20,9 @@
         .font-krub {
             font-family: 'Krub', sans-serif;
         }
-        .font-maitree {
+        /* .font-maitree {
             font-family: 'Maitree', serif;
-        }
+        } */
         .font-niramit {
             font-family: 'Niramit', sans-serif;
         }
@@ -40,11 +40,11 @@
         }
     </style>
 </head>
-<body class="font-{{ $fontName }} p-6 md:p-32">
+<body class="font-{{ $fontName }} p-8 md:p-32">
     <a class="underline text-blue-400" href="{{ url('/fonts') }}">ย้อนกลับไปเลือกฟอนต์</a>
     <h1 class="mt-5 text-2xl font-medium">ฟอนต์ {{ $fontName }}</h1>
     <h2 class="mt-5 text-xl font-medium">ประวัติ</h2>
-    <div class="mt-5 font-thin">
+    <div class="mt-5 font-thin text-lg">
         <p class="my-4">ปรมาจารย์ผู้ให้กำเนิดวิชาโรคไตยุคปัจจุบันที่โรงพยาบาลศิริราช ได้แก่ ศ.นพ.รจิต บุรี ผู้ก่อตั้งสาขาวิชาวักกะวิทยา ภาควิชาอายุรศาสตร์ เมื่อปี พ.ศ. 2503 หลังจากที่ ศ.นพ.รจิต บุรี ได้รับทุนจาก National Institutes of Health (NIH) เพื่อไปศึกษาด้านการฟอกเลือดด้วยเครื่องไตเทียมในต่างประเทศ และได้นำวิทยาการ และเทคโนโลยีในการตรวจวินิจฉัยโรคไต fluid และ electrolytes ยุคใหม่มาใช้  ศ.นพ.รจิต บุรี จึงเป็นอาจารย์และเป็นหัวหน้าสาขาวิชาวักกะวิทยาท่านแรก ต่อมา ศ.นพ.รจิต บุรี ได้ลาออกเมื่อ พ.ศ. 2509 เพื่อไปร่วมก่อตั้งคณะแพทยศาสตร์โรงพยาบาลรามาธิบดี 
         </p>
 
@@ -59,7 +59,7 @@
         </p>
     </div>
     <h2 class="mt-5 text-xl font-medium">Publications</h2>
-    <div class="mt-5 font-thin">
+    <div class="mt-5 font-thin text-lg">
         <p class="my-4">Krittayaphong R, Satirapoj B, Ongphiphadhanakul B, Vareesangthip K, Suwanwalaikorn S, Buddhari W. The use of SGLT2i and GLP-1 RA in patients with type 2 diabetes in Thailand: evidence review and recommendations. J Med Assoc Thai 2021; 104: 1850-65.</p>
         <p class="my-4">Bhargava V, Jasuja S, Tang SC, Bhalla AK, Sagar G, Jha V, Ramachandran R, Sahay M, Alexander S, Vachharajani T, Lydia A, Mostafi M, Pisharam JK, Jacob C, Gunawan A, Leong GB, Thwin KT, Agrawal RK, Vareesangthip K, Tanchanco R, Choong L, Herath C, Lin CC, Akhtar SF, Alsahow A, Rana DS, Rajapurkar MM, Kher V, Verma S, Krishnaswamy S, Gupta A, Bahl A, Gupta A, Khanna UB, Varughese S, Gallieni M. Peritoneal dialysis: Status report in South and South East Asia. Nephrology (Carlton) 2021; 26: 898-906.</p>
         <p class="my-4">Deerochanawong C, Vareesangthip K, Piyayotai D, Thongsuk D, Pojchaijongdee N, Permsuwan U. Cost-utility analysis of dapagliflozin as an add-on to standard treatment for patients with type 2 diabetes and high risk of cardiovascular disease in Thailand. Diabetes Ther. 2021; 12: 1947-63.</p>

@@ -7,7 +7,7 @@
     <title>เลือกฟอนต์</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="p-6 md:p-32">
+<body class="p-12 md:p-32">
     <h1 class="font-medium text-xl">รายการฟอนต์</h1>
 
     <ol class="mt-5 list-decimal space-y-4">
@@ -15,7 +15,7 @@
         <li><a class="underline text-blue-400" href="{{ url('/fonts/ibm') }}">ฟอนต์ IBM Plex Sans Thai click เพื่อดูตัวอย่าง</a></li>
         <li><a class="underline text-blue-400" href="{{ url('/fonts/k2d') }}">ฟอนต์ K2D click เพื่อดูตัวอย่าง</a></li>
         <li><a class="underline text-blue-400" href="{{ url('/fonts/krub') }}">ฟอนต์ Krub click เพื่อดูตัวอย่าง</a></li>
-        <li><a class="underline text-blue-400" href="{{ url('/fonts/mitree') }}">ฟอนต์ Mitree click เพื่อดูตัวอย่าง</a></li>
+        {{-- <li><a class="underline text-blue-400" href="{{ url('/fonts/mitree') }}">ฟอนต์ Mitree click เพื่อดูตัวอย่าง</a></li> --}}
         <li><a class="underline text-blue-400" href="{{ url('/fonts/niramit') }}">ฟอนต์ Niramit click เพื่อดูตัวอย่าง</a></li>
         <li><a class="underline text-blue-400" href="{{ url('/fonts/prompt') }}">ฟอนต์ Prompt click เพื่อดูตัวอย่าง</a></li>
         <li><a class="underline text-blue-400" href="{{ url('/fonts/sarabun') }}">ฟอนต์ Sarabun click เพื่อดูตัวอย่าง</a></li>
