@@ -15,10 +15,10 @@ InertiaProgress.init({
 
 createInertiaApp({
     resolve: name => { // single file
-        const page = require(`./Pages/${name}`).default
+        const page = require(`./Pages/${name}`).default;
         page.layout = page.layout || Layout;
 
-        return page
+        return page;
     },
     // resolve: async name => {
     //     const page = (await import(`./Pages/${name}`)).default;
