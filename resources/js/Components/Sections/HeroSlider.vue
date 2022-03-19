@@ -1,14 +1,16 @@
 <template>
     <div class="relative">
         <div class="absolute text-center text-white w-full top-[40%] z-10 bg-gray-900/30 p-4 md:p-8 text-2xl md:text-4xl leading-normal md:leading-loose">
-            <p>เป็นผู้นำทางอายุรศาสตร์โรคไต</p>
+            <p class="font-thin">
+                เป็นผู้นำทางอายุรศาสตร์โรคไต
+            </p>
             <p class="font-medium">
                 ของเอเซีย
             </p>
         </div>
         <Splide
             class="absolute"
-            :options="splideIptions"
+            :options="splideOptions"
         >
             <SplideSlide
                 v-for="image in images"
@@ -34,13 +36,14 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import { reactive, ref } from '@vue/reactivity';
 
-const splideIptions = reactive({
+const splideOptions = reactive({
     type: 'fade',
     rewind: true,
     arrows: false,
     autoplay: true,
-    speed: 2000,
-    interval: 10000
+    speed: 4000,
+    interval: 10000,
+    pauseOnHover: false,
 });
 
 const images = ref([

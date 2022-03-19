@@ -1,6 +1,11 @@
 <template>
-    <header class="fixed top-0 overflow-hidden z-30 w-full">
-        <div class="text-purple-800 px-4 py-2 flex items-center justify-between">
+    <header
+        class="fixed top-0 overflow-hidden z-30 w-full transition-colors duration-700"
+        :class="{'bg-white shadow-lg': showMobileNavBg}"
+    >
+        <div
+            class="text-primary-800 px-4 py-2 flex items-center justify-between"
+        >
             <!-- the logo -->
             <Link
                 class="inline-block"
@@ -40,13 +45,14 @@
                 :key="group.title"
             >
                 <button
-                    class="w-full flex items-center justify-between p-6 border-b border-purple-200 text-purple-800 text-xl font-medium text-center"
+                    class="w-full flex items-center justify-between p-6 border-b border-primary-200 text-primary-800 text-xl font-medium text-center"
                     @click="group.showMenu = !group.showMenu"
                 >
                     <p>{{ group.title }}</p>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
+                        class="h-6 w-6 transition-transform duration-200 transform"
+                        :class="{'rotate-180': group.showMenu}"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -61,7 +67,7 @@
                 </button>
                 <transition name="slide-fade">
                     <ul
-                        class="px-8 py-4 bg-purple-800 text-white font-medium leading-loose"
+                        class="px-8 py-4 bg-primary-800 text-white font-medium leading-loose"
                         v-if="group.showMenu"
                     >
                         <li
@@ -79,10 +85,12 @@
 
 <script setup>
 import { ref } from '@vue/reactivity';
-import { Link } from '@inertiajs/inertia-vue3';
+
+defineProps({
+    showMobileNavBg: { type: Boolean }
+});
 
 const mobileMenuVisible = ref(false);
-const showMenu = ref(false);
 const menuGroups = ref([
     {
         title: 'เกี่ยวกับเรา',
