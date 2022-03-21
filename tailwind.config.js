@@ -11,8 +11,15 @@ module.exports = {
             colors: {
                 primary: colors.white,
                 accent: '#86198F', // fuchsia-800
-                complement: '#1F2937', // gray-800
-                'complement-alt': '#48817d',
+                // accent: '#48817d',
+                // complement: '#1F2937', // gray-800
+                complement: '#374151', // gray-700
+                'complement-alt': '#4f9c88',
+                // 'complement-alt': '#86198F', // fuchsia-800
+                // 'complement-alt': '#9F1239', // violet-800
+
+
+                // 'complement-alt': '#00524f',
                 // 'complement-alt': '#5bbab5',
                 // 'complement-alt': '#0065c5',
                 // 'complement-alt': '#9d719d',
