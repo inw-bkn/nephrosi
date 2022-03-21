@@ -1,17 +1,17 @@
 <template>
     <section>
         <div class="flex items-end justify-between">
-            <h2 class="text-xl font-medium text-primary-800">
+            <h2 class="text-xl font-medium text-complement underline decoration-complement-alt decoration-4">
                 บทความ
             </h2>
             <Link
-                class="flex underline decoration-primary-200 decoration-4"
+                class="flex"
                 href="#"
             >
                 <span class="text-sm">เพิ่มเติม</span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="ml-2 h-6 w-6 text-primary-800"
+                    class="ml-2 h-6 w-6 text-accent"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -26,26 +26,28 @@
             </Link>
         </div>
         <Splide
-            class="mt-4"
+            class="mt-4 bg-gradient-to-tl from-complement-alt to-gray-200"
             :options="splideOptions"
         >
             <SplideSlide
                 v-for="article in articles"
                 :key="article.img"
             >
-                <div class="bg-gray-200">
+                <div class="aspect-w-1 aspect-h-1">
                     <img
-                        class="w-96 h-96 mx-auto object-contain object-center"
+                        class="w-full object-contain object-center"
                         :src="`/image/${article.img}`"
                         :alt="article.img"
                     >
                 </div>
-                <p class="mt-4 line-clamp-2 font-medium text-ellipsis">
-                    {{ article.title }}
-                </p>
-                <p class="mt-2 line-clamp-3 text-ellipsis">
-                    {{ article.text }}
-                </p>
+                <div class="pt-6 bg-primary">
+                    <h3 class="mt-0 truncate text-complement-alt font-medium">
+                        {{ article.title }}
+                    </h3>
+                    <article class="mt-2 line-clamp-2">
+                        {{ article.text }}
+                    </article>
+                </div>
             </SplideSlide>
         </Splide>
     </section>
@@ -62,7 +64,7 @@ const splideOptions = reactive({
     pagination: true,
     autoplay: true,
     speed: 1000,
-    interval: 5000
+    interval: 7500
 });
 
 const articles = ref([

@@ -1,17 +1,17 @@
 <template>
     <section>
         <div class="flex items-end justify-between">
-            <h2 class="text-xl font-medium text-primary-800">
+            <h2 class="text-xl font-medium text-complement underline decoration-complement-alt decoration-4">
                 ข่าวสาร
             </h2>
             <Link
-                class="flex underline decoration-primary-200 decoration-4"
+                class="flex"
                 href="#"
             >
                 <span class="text-sm">เพิ่มเติม</span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="ml-2 h-6 w-6 text-primary-800"
+                    class="ml-2 h-6 w-6 text-accent"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -26,15 +26,58 @@
             </Link>
         </div>
         <Splide
-            class="mt-4"
+            class="mt-4 bg-gradient-to-br from-complement-alt to-gray-200"
             :options="splideOptions"
         >
+            <template #before-track>
+                <div class="splide__arrows">
+                    <button class="splide__arrow splide__arrow--prev bg-primary">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-accent"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                            />
+                        </svg>
+                    </button>
+                    <button class="splide__arrow splide__arrow--next bg-primary">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-accent"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </template>
             <SplideSlide
                 v-for="article in news"
                 :key="article.img"
             >
-                <div class="relative">
-                    <div class="w-1/2 border-t-4 border-primary-800 p-2 bg-white absolute top-[85%] left-[50%] flex items-end justify-end">
+                <div class="aspect-w-1 aspect-h-1">
+                    <img
+                        class="w-full object-contain object-center"
+                        :src="`/image/${article.img}`"
+                        :alt="article.img"
+                    >
+                </div>
+                <div class="flex justify-end bg-primary">
+                    <div class="w-1/2 bg-primary border-t-4 border-complement-alt p-2 -translate-y-[50%] text-complement-alt  flex items-end justify-end shadow">
                         <div class="mr-4 text-4xl font-medium italic">
                             {{ article.d }}
                         </div>
@@ -43,15 +86,15 @@
                             <div>{{ article.m }}</div>
                         </div>
                     </div>
-                    <img
-                        class="w-full bg-gray-200 object-contain object-center"
-                        :src="`/image/${article.img}`"
-                        :alt="article.img"
-                    >
                 </div>
-                <p class="mt-8 line-clamp-2 text-ellipsis">
-                    {{ article.text }}
-                </p>
+                <div class="bg-primary">
+                    <h3 class="mt-0 truncate text-complement-alt font-medium">
+                        {{ article.title }}
+                    </h3>
+                    <article class="mt-2 line-clamp-2">
+                        {{ article.text }}
+                    </article>
+                </div>
             </SplideSlide>
         </Splide>
     </section>
@@ -71,7 +114,7 @@ const splideOptions = reactive({
 });
 
 const news = ref([
-    { img: 'news1.jpeg', d: 14, m: 'FEB', y: 2022, text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-    { img: 'news2.jpeg', d: 1, m: 'JAN', y: 2022, text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'news1.jpeg', d: 14, m: 'FEB', y: 2022, title: 'รับสมัครเฟลโลว์', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'news2.jpeg', d: 1, m: 'JAN', y: 2022, title: 'สารจากหัวหน้าสาขาฯ', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
 ]);
 </script>

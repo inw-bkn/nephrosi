@@ -1,12 +1,12 @@
 <template>
     <a
-        class="w-96 h-48 mx-auto shadow bg-cover bg-center block"
+        class="aspect-w-2 aspect-h-1 shadow bg-cover bg-center block"
         :style="`background-image: url('/image/${image}')`"
         :data-aos="animate"
         data-aos-once="true"
         :href="link"
     >
-        <div class="flex items-end h-full justify-between bg-gray-700/30 text-white p-4">
+        <div class="flex items-end h-full justify-between bg-gray-600/40 text-white p-4">
             <div class="">
                 <slot />
             </div>

@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <div class="absolute text-center text-white w-full top-[40%] z-10 bg-gray-900/30 p-4 md:p-8 text-2xl md:text-4xl leading-normal md:leading-loose">
+        <div class="absolute text-center text-white w-full top-[40%] z-10 p-4 md:p-8 text-2xl md:text-4xl leading-normal md:leading-loose">
             <p class="font-thin">
                 เป็นผู้นำทางอายุรศาสตร์โรคไต
             </p>
@@ -17,7 +17,7 @@
                 :key="image.name"
             >
                 <img
-                    class="min-h-[65vh] md:min-h-fit md:w-full md:object-center object-cover zoom-in-out"
+                    class="min-h-[65vh] md:min-h-fit md:w-full md:object-center object-cover zoom-in-out brightness-[0.7]"
                     :class="{
                         'object-left': image.left,
                         'object-center': image.center,
@@ -44,6 +44,9 @@ const splideOptions = reactive({
     speed: 4000,
     interval: 10000,
     pauseOnHover: false,
+    classes: {
+        page: 'splide__pagination__page splide__pagination__page-custom',
+    }
 });
 
 const images = ref([

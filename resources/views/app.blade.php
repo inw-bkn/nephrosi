@@ -12,8 +12,21 @@
         @env('local')
             <script src="http://localhost:35729/livereload.js"></script>
         @endenv
+
+        <style>
+            .splide__pagination__page-custom {
+                background: #86198F!important;
+            }
+            .splide__pagination__page.is-active{
+                background: #fff!important;
+            }
+            .splide__arrow {
+                /* color: #fff!important; */
+                background: #fff!important;
+            }
+        </style>
     </head>
-    <body class="font-k2d font-extralight text-gray-700">
+    <body class="font-k2d font-extraligh bg-primary text-complement">
         @inertia
     </body>
 </html>

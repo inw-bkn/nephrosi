@@ -1,11 +1,9 @@
 <template>
     <header
         class="fixed top-0 overflow-hidden z-30 w-full transition-colors duration-700"
-        :class="{'bg-white shadow-lg': showMobileNavBg}"
+        :class="{'bg-primary shadow-lg': showMobileNavBg}"
     >
-        <div
-            class="text-primary-800 px-4 py-2 flex items-center justify-between"
-        >
+        <div class="text-accent px-4 py-2 flex items-center justify-between">
             <!-- the logo -->
             <Link
                 class="inline-block"
@@ -16,7 +14,7 @@
             <!-- hamberger menu on mobile -->
             <button
                 class="md:hidden p-2 rounded-full transition-all duration-300 ease-out transform"
-                :class="{ 'text-white bg-gray-700/30' : mobileMenuVisible }"
+                :class="{ 'text-primary bg-gray-700/30' : mobileMenuVisible }"
                 @click="mobileMenuVisible = !mobileMenuVisible"
             >
                 <svg
@@ -37,7 +35,7 @@
         </div>
         <!-- menu on mobile -->
         <nav
-            class="md:hidden w-5/6 block fixed left-0 inset-y-0 overflow-y-scroll text-soft-theme-light bg-white shadow-md transition-transform transform duration-300 ease-in-out"
+            class="md:hidden w-5/6 block fixed left-0 inset-y-0 overflow-y-scroll text-soft-theme-light bg-primary shadow-md transition-transform transform duration-300 ease-in-out"
             :class="{ '-translate-x-full': !mobileMenuVisible }"
         >
             <template
@@ -45,7 +43,7 @@
                 :key="group.title"
             >
                 <button
-                    class="w-full flex items-center justify-between p-6 border-b border-primary-200 text-primary-800 text-xl font-medium text-center"
+                    class="w-full flex items-center justify-between p-6 border-b border-complement-alt text-accent text-xl font-medium text-center"
                     @click="group.showMenu = !group.showMenu"
                 >
                     <p>{{ group.title }}</p>
@@ -67,7 +65,7 @@
                 </button>
                 <transition name="slide-fade">
                     <ul
-                        class="px-8 py-4 bg-primary-800 text-white font-medium leading-loose"
+                        class="px-8 py-4 bg-complement-alt text-primary font-medium leading-loose"
                         v-if="group.showMenu"
                     >
                         <li
