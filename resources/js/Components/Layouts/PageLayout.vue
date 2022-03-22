@@ -1,4 +1,5 @@
 <template>
+    <!-- nav menu -->
     <header
         class="fixed top-0 overflow-hidden z-30 w-full transition-colors duration-700"
         :class="{'bg-primary shadow-lg': !transparentBackground}"
@@ -79,14 +80,32 @@
             </template>
         </nav>
     </header>
+    <slot />
+    <div>
+        iam footer
+    </div>
 </template>
 
 <script setup>
+import { usePage } from '@inertiajs/inertia-vue3';
 import { ref } from '@vue/reactivity';
+import { watch } from '@vue/runtime-core';
 
-defineProps({
-    transparentBackground: { type: Boolean },
-});
+const transparentBackground = ref(false);
+
+watch(
+    () => usePage().props.value.event.fire,
+    (event) => {
+        if (! event) {
+            return;
+        }
+
+        if (usePage().props.value.event.name === 'toggle-nav-transparent-background') {
+            transparentBackground.value = !transparentBackground.value;
+            // setTimeout(() => confirmForm.value.open(usePage().props.value.event.payload), 300);
+        }
+    }
+);
 
 const mobileMenuVisible = ref(false);
 const menuGroups = ref([

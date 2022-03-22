@@ -45,7 +45,12 @@ class HandleInertiaRequests extends Middleware
                 'isMobile' => fn () => Session::get('client-agent')->isMobile(),
                 'isTablet' => fn () => Session::get('client-agent')->isTablet(),
                 'isDesktop' => fn () => Session::get('client-agent')->isDesktop(),
-            ]
+            ],
+            'event' => [
+                'fire' => null,
+                'name' => '',
+                'payload' => null,
+            ],
         ]);
     }
 }
