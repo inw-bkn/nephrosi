@@ -14,16 +14,16 @@
         @endenv
 
         <style>
-            .splide__pagination__page-custom {
+            .splide__pagination__page {
                 background: #86198F!important;
             }
             .splide__pagination__page.is-active{
-                background: #fff!important;
+                background: #4f9c88!important;
             }
-            .splide__arrow {
-                /* color: #fff!important; */
+            /* .splide__arrow {
+                color: #fff!important;
                 background: #fff!important;
-            }
+            } */
         </style>
     </head>
     <body class="font-k2d font-extraligh bg-primary text-complement">

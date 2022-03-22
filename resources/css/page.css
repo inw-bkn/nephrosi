@@ -1,7 +1,3 @@
 .font-k2d {
     font-family: 'K2D', sans-serif;
 }
-
-.link {
-    @apply text-accent underline decoration-complement-alt decoration-4;
-}

@@ -17,7 +17,7 @@
                 :key="image.name"
             >
                 <img
-                    class="min-h-[65vh] md:min-h-fit md:w-full md:object-center object-cover zoom-in-out brightness-[0.7]"
+                    class="min-h-[66vh] md:min-h-fit md:w-full md:object-center object-cover zoom-in-out brightness-[0.7]"
                     :class="{
                         'object-left': image.left,
                         'object-center': image.center,

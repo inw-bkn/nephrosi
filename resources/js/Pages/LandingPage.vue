@@ -1,15 +1,17 @@
 <template>
     <Head title="Nephr@SI" />
-    <MainMenu :show-mobile-nav-bg="showMobileNavBg" />
-    <HeroSlider />
+    <MainMenu :transparent-background="transparentNavBackground" />
+    <HeroSlider data-aos="fade-down" />
     <NewsPost
         class="p-4 pt-8"
         data-aos="fade-up"
+        :use-truncate="useTruncate"
     />
     <ArticlePost
-        class="p-4 pt-8 bg-complement-alt"
+        class="p-4 pt-8"
         data-aos="fade-up"
-        data-aos-id="trigger-mobile-nav-bg"
+        data-aos-id="trigger-nav-background"
+        :use-truncate="useTruncate"
     />
     <div class="bg-info px-4 py-8 space-y-8">
         <InfoCard
@@ -50,7 +52,7 @@
         </InfoCard>
     </div>
     <div
-        class="min-h-screen bg-slate-500 p-8"
+        class="min-h-screen bg-complement p-8"
     >
         <div
             class="bg-gray-200 w-64 h-64 text-center pt-32 text-4xl mt-8"
@@ -84,13 +86,26 @@ import { onMounted, ref } from '@vue/runtime-core';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const showMobileNavBg = ref(false);
+const props = defineProps({
+    agent: { type: Object, required: true }
+});
+
+const useTruncate = ref(props.agent.browser === 'Safari');
+
+const transparentNavBackground = ref(true);
 
 onMounted(() => {
     AOS.init({duration: 1500});
 
-    document.addEventListener('aos:in:trigger-mobile-nav-bg', () => {
-        showMobileNavBg.value = !showMobileNavBg.value;
+    document.addEventListener('aos:in:trigger-nav-background', () => {
+        transparentNavBackground.value = !transparentNavBackground.value;
+    });
+
+    document.addEventListener('aos:in:trigger-mobile-nav-alt', () => {
+        console.log('alt:in');
+    });
+    document.addEventListener('aos:out:trigger-mobile-nav-alt', () => {
+        console.log('alt:out');
     });
 });
 </script>

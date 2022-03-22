@@ -1,7 +1,7 @@
 <template>
     <header
         class="fixed top-0 overflow-hidden z-30 w-full transition-colors duration-700"
-        :class="{'bg-primary shadow-lg': showMobileNavBg}"
+        :class="{'bg-primary shadow-lg': !transparentBackground}"
     >
         <div class="text-accent px-4 py-2 flex items-center justify-between">
             <!-- the logo -->
@@ -85,7 +85,7 @@
 import { ref } from '@vue/reactivity';
 
 defineProps({
-    showMobileNavBg: { type: Boolean }
+    transparentBackground: { type: Boolean },
 });
 
 const mobileMenuVisible = ref(false);
