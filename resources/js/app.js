@@ -5,7 +5,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import { createApp, h } from 'vue';
 import { createInertiaApp, Head, Link } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
-import Layout from './Components/Layouts/Layout';
+import Layout from './Components/Layouts/PageLayout';
 
 InertiaProgress.init({
     delay: 200,

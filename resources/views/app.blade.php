@@ -20,13 +20,9 @@
             .splide__pagination__page.is-active{
                 background: #4f9c88!important;
             }
-            /* .splide__arrow {
-                color: #fff!important;
-                background: #fff!important;
-            } */
         </style>
     </head>
-    <body class="font-k2d font-extraligh bg-primary text-complement">
+    <body class="font-k2d font-extralight bg-primary text-complement">
         @inertia
     </body>
 </html>

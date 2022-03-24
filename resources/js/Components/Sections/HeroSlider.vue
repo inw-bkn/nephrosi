@@ -44,13 +44,11 @@ const splideOptions = reactive({
     speed: 4000,
     interval: 10000,
     pauseOnHover: false,
-    classes: {
-        page: 'splide__pagination__page splide__pagination__page-custom',
-    }
 });
 
 const images = ref([
     { name: 'hero1.jpeg', center: true, right: false, left: false },
+    { name: 'hero8.jpeg', center: true, right: false, left: false },
     { name: 'hero2.jpeg', center: true, right: false, left: false },
     { name: 'hero3.jpeg', center: false, right: true, left: false },
     { name: 'hero4.jpeg', center: true, right: false, left: false },
