@@ -1,18 +1,24 @@
 <template>
     <section>
         <ArticleSectionHeader
-            heading="บทความ"
+            heading="ความรู้สำหรับประชาชน"
             link="#"
         />
         <Splide
-            class="mt-4 bg-gradient-to-tl from-complement-alt to-gray-200"
+            class="mt-4"
             :options="splideOptions"
         >
             <SplideSlide
-                v-for="article in articles"
+                v-for="(article, index) in articles"
                 :key="article.img"
             >
-                <div class="aspect-w-1 aspect-h-1">
+                <div
+                    class="aspect-w-1 aspect-h-1 bg-gradient-to-tl from-complement to-gray-200"
+                    :class="{
+                        'bg-gradient-to-tl': index % 2 === 0,
+                        'bg-gradient-to-tr': index % 2 !== 0,
+                    }"
+                >
                     <img
                         class="w-full object-contain object-center"
                         :src="`/image/${article.img}`"
@@ -20,7 +26,7 @@
                     >
                 </div>
                 <ArticlePeek
-                    class="pt-4 bg-primary pb-10"
+                    class="pt-4 pb-10"
                     :article="article"
                     :use-truncate="useTruncate"
                 />

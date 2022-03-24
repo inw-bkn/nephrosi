@@ -1,18 +1,17 @@
 <template>
     <Head title="Nephr@SI" />
     <HeroSlider data-aos="fade-down" />
-    <NewsPost
-        class="p-4 pt-8"
+    <NewsPostAlt
+        class="p-4 mb-8"
         data-aos="fade-up"
         :use-truncate="useTruncate"
     />
     <ArticlePost
-        class="p-4 pt-8"
+        class="bg-gray-100 p-4 pb-8"
         data-aos="fade-up"
-        data-aos-id="trigger-nav-background"
         :use-truncate="useTruncate"
     />
-    <div class="bg-info px-4 py-8 space-y-8">
+    <section class="bg-info px-4 py-8 space-y-8">
         <InfoCard
             image="info1.jpeg"
             animate="zoom-in-up"
@@ -49,35 +48,37 @@
                 โรคไตเรื้อรัง การบำบัดทดแทนไต อาหารและยา
             </div>
         </InfoCard>
-    </div>
-    <div
-        class="min-h-screen bg-complement p-8"
-    >
-        <div
-            class="bg-gray-200 w-64 h-64 text-center pt-32 text-4xl mt-8"
-            data-aos="slide-up"
-        >
-            up
+    </section>
+    <section class="px-4 py-8">
+        <div class="grid grid-cols-2 justify-center gap-x-8">
+            <div class="flex items-center justify-center aspect-1 bg-complement-alt rounded-full z-10">
+                <div class="text-4xl text-primary">
+                    สถิติ
+                </div>
+            </div>
+            <div
+                v-for="stat in stats"
+                :key="stat.id"
+                class="aspect-1 text-center flex flex-col items-center justify-center space-y-4 bg-primary"
+                :data-aos="stat.animate"
+                data-stat-counting="true"
+                :data-stat-count="stat.count"
+            >
+                <p class="font-medium text-complement-alt text-4xl">
+                    +<span v-text="stat.count" />
+                </p>
+                <p class="text-md">
+                    {{ stat.title }}
+                </p>
+            </div>
         </div>
-
-        <div
-            class="bg-gray-200 w-64 h-64 text-center pt-32 text-4xl mt-8"
-            data-aos="slide-down"
-        >
-            down
-        </div>
-    </div>
-    <div class=" line-clamp-2">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto eaque tenetur non a accusamus, fugiat quae magni libero reiciendis, expedita adipisci atque similique harum asperiores ipsam, placeat voluptatum quidem mollitia!
-    </div>
-    <div class=" truncate">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto eaque tenetur non a accusamus, fugiat quae magni libero reiciendis, expedita adipisci atque similique harum asperiores ipsam, placeat voluptatum quidem mollitia!
-    </div>
+    </section>
 </template>
 
 <script setup>
 import HeroSlider from '@/Components/Sections/HeroSlider';
 import NewsPost from '@/Components/Sections/NewsPost';
+import NewsPostAlt from '@/Components/Sections/NewsPostAlt';
 import ArticlePost from '@/Components/Sections/ArticlePost';
 import InfoCard from '@/Components/Sections/InfoCard';
 import { onMounted, ref } from '@vue/runtime-core';
@@ -91,17 +92,43 @@ const props = defineProps({
 
 const useTruncate = ref(props.agent.browser === 'Safari');
 
+const stats = [
+    { title: 'บทความ', count: 157, animate: 'fade-right', id: 'article-count-value' },
+    { title: 'งานวิจัยตีพิมพ์', count: 278, animate: 'slide-down', id: 'publication-count-value' },
+    { title: 'เฟลโลว์', count: 117, animate: 'fade-right', id: 'fellow-count-value' },
+    { title: 'Renal Biopsy', count: 3401, animate: 'slide-down', id: 'biopsy-count-value' },
+    { title: 'Kidney Transplant', count: 1602, animate: 'fade-right', id: 'kt-count-value' },
+];
+
 onMounted(() => {
-    usePage().props.value.event.payload = null;
-    usePage().props.value.event.name = 'toggle-nav-transparent-background';
-    usePage().props.value.event.fire = + new Date();
+    AOS.init({duration: 1200, once: true});
 
-    AOS.init({duration: 1500});
-
-    document.addEventListener('aos:in:trigger-nav-background', () => {
-        usePage().props.value.event.payload = null;
-        usePage().props.value.event.name = 'toggle-nav-transparent-background';
+    document.addEventListener('scroll', () => {
+        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+        usePage().props.value.event.payload = window.scrollY < (vh * 0.5);
+        usePage().props.value.event.name = 'set-nav-transparent-background';
         usePage().props.value.event.fire = + new Date();
     });
+
+    document.addEventListener('aos:in', ({ detail }) => {
+        if (!detail.dataset.statCounting) {
+            return;
+        }
+        let counting = detail.querySelector('span');
+        animateValue(counting, 0, detail.dataset.statCount, 2500);
+    });
 });
+
+const animateValue = (obj, start, end, duration) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+};
 </script>

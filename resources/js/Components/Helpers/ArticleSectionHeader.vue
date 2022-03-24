@@ -1,6 +1,6 @@
 <template>
-    <div class="flex items-end justify-between">
-        <h2 class="text-xl font-medium text-complement-alt">
+    <div class="flex items-end justify-between my-8">
+        <h2 class="text-2xl font-medium text-complement-alt">
             {{ heading }}
         </h2>
         <Link

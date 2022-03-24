@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h3 class="mt-0 truncate text-complement-alt font-medium">
+        <h3 class="mt-0 truncate font-medium">
             {{ article.title }}
         </h3>
         <article :class="{'mt-2 truncate': useTruncate, 'mt-2 line-clamp-2': !useTruncate}">
             <Link
                 :href="article.link"
-                class="underline decoration-accent decoration-2"
+                class="underline underline-offset-1 decoration-accent"
             >
                 {{ article.text }}
             </Link>
