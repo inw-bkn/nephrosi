@@ -81,7 +81,36 @@
         </nav>
     </header>
     <slot />
-    <div class="bg-complement font-thin text-primary/70 p-4">
+    <section class="bg-bank-note px-4 py-8">
+        <h2 class="text-2xl font-medium text-complement-alt">
+            เว็บไซต์ที่เกี่ยวข้อง
+        </h2>
+        <div class="grid grid-rows-3 grid-flow-col gap-4 mt-6">
+            <a
+                v-for="(link, key) in externalLinks"
+                :key="key"
+                :href="link.link"
+                class="font-medium"
+            >
+                {{ link.title }}
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-accent inline"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                </svg>
+            </a>
+        </div>
+    </section>
+    <footer class="bg-complement font-thin text-primary/70 p-4">
         <div class="text-primary font-medium text-lg">
             <p>สาขาวิชาวักกะวิทยา</p>
             <p>ศิริราชพยาบาล</p>
@@ -105,12 +134,12 @@
             <p>แขวงบางกอกน้อย กรุงเทพฯ 10700</p>
             <div class="flex items-center space-x-4">
                 <a
-                    class="flex items-center space-x-2"
+
                     href="tel:024198385"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4 text-accent"
+                        class="mr-1 inline h-4 w-5 text-accent"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -125,12 +154,12 @@
                     <span>024198385</span>
                 </a>
                 <a
-                    class="flex items-center space-x-2"
+
                     href="mailto:contact@nephrosi.org"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4 text-accent"
+                        class="mr-1 inline h-4 w-5 text-accent"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -150,7 +179,7 @@
                 © สงวนลิขสิทธิ์ 2022 สาขาวิชาวักกะวิทยา ศิริราชพยาบาล
             </p>
         </div>
-    </div>
+    </footer>
 </template>
 
 <script setup>
@@ -159,6 +188,15 @@ import { ref } from '@vue/reactivity';
 import { watch } from '@vue/runtime-core';
 
 const transparentBackground = ref(true);
+
+const externalLinks = [
+    { title: 'คณะแพทยศาสตร์ศิริราชพยาบาล', link: 'https://www.si.mahidol.ac.th/th/' },
+    { title: 'สมาคมโรคไตแห่งประเทศไทย', link: 'https://www.nephrothai.org/' },
+    { title: 'สมาคมปลูกถ่ายอวัยวะแห่งประเทศไทย', link: 'https://transplantthai.org/' },
+    { title: 'Thai GN Registry', link: 'https://thaignregistry.org/home' },
+    { title: 'Thai KDPI EPTS calculator', link: 'https://www.thai-kdpi-epts.org/' },
+    { title: 'Thai cPRA calculator', link: 'https://thai-cpra.org/test' },
+];
 
 watch(
     () => usePage().props.value.event.fire,
