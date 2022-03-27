@@ -11,6 +11,7 @@
         data-aos="fade-up"
         :use-truncate="useTruncate"
     />
+
     <section class="bg-topography px-4 py-8 space-y-8">
         <InfoCard
             image="info1.jpeg"
@@ -90,7 +91,7 @@ const props = defineProps({
     agent: { type: Object, required: true }
 });
 
-const useTruncate = ref(props.agent.browser === 'Safari');
+const useTruncate = false;//ref(props.agent.browser === 'Safari');
 
 const stats = [
     { title: 'บทความ', count: 157, animate: 'fade-right', id: 'article-count-value' },

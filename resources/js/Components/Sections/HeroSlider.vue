@@ -8,70 +8,87 @@
                 ของเอเซีย
             </p>
         </div>
-        <Splide
-            class="absolute"
-            :options="splideOptions"
+        <div
+            class="splide absolute"
+            id="hero-slides-container"
         >
-            <SplideSlide
-                v-for="image in images"
-                :key="image.name"
-            >
-                <img
-                    class="min-h-[66vh] md:min-h-fit md:w-full md:object-center object-cover zoom-in-out brightness-[0.7]"
-                    :class="{
-                        'object-left': image.left,
-                        'object-center': image.center,
-                        'object-right': image.right,
-                    }"
-                    :src="`/image/${image.name}`"
-                    :alt="`Sample ${image.name}`"
-                >
-            </SplideSlide>
-        </Splide>
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li
+                        class="splide__slide"
+                        v-for="image in images"
+                        :key="image.name"
+                    >
+                        <img
+                            class="min-h-[66vh] w-full md:object-center object-cover brightness-[0.7] md:min-h-[80vh] lg:min-h-screen"
+                            :class="{
+                                'object-left': image.left,
+                                'object-center': image.center,
+                                'object-right': image.right,
+                                'zoom-in': image.animate,
+                            }"
+                            :src="`/image/${image.name}`"
+                            :alt="`Sample ${image.name}`"
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import Splide from '@splidejs/splide';
 import '@splidejs/splide/dist/css/splide.min.css';
-import { reactive, ref } from '@vue/reactivity';
-
-const splideOptions = reactive({
-    type: 'fade',
-    rewind: true,
-    arrows: false,
-    autoplay: true,
-    speed: 4000,
-    interval: 10000,
-    pauseOnHover: false,
-});
+import { ref } from '@vue/reactivity';
+import { onMounted } from '@vue/runtime-core';
 
 const images = ref([
-    { name: 'hero1.jpeg', center: true, right: false, left: false },
-    { name: 'hero8.jpeg', center: true, right: false, left: false },
-    { name: 'hero2.jpeg', center: true, right: false, left: false },
-    { name: 'hero3.jpeg', center: false, right: true, left: false },
-    { name: 'hero4.jpeg', center: true, right: false, left: false },
-    { name: 'hero7.jpeg', center: true, right: false, left: false },
-    { name: 'hero5.jpeg', center: true, right: false, left: false },
-    { name: 'hero6.jpeg', center: true, right: false, left: false },
+    { name: 'hero1.jpeg', center: true, right: false, left: false, animate: true },
+    { name: 'hero8.jpeg', center: true, right: false, left: false, animate: false },
+    { name: 'hero2.jpeg', center: true, right: false, left: false, animate: false },
+    { name: 'hero3.jpeg', center: false, right: true, left: false, animate: false },
+    { name: 'hero4.jpeg', center: true, right: false, left: false, animate: false },
+    { name: 'hero7.jpeg', center: true, right: false, left: false, animate: false },
+    { name: 'hero5.jpeg', center: true, right: false, left: false, animate: false },
+    { name: 'hero6.jpeg', center: true, right: false, left: false, animate: false },
 ]);
+
+onMounted(() => {
+    let splide = new Splide( '#hero-slides-container' , {
+        type: 'fade',
+        rewind: true,
+        arrows: false,
+        autoplay: true,
+        speed: 4000,
+        interval: 10000,
+        pauseOnHover: false,
+    }).mount();
+
+    splide.on( 'move', (newIndex, prevIndex, destIndex) => {
+        console.log('newIndex', newIndex);
+        console.log('prevIndex', prevIndex);
+        console.log('destIndex', destIndex);
+        images.value[newIndex].animate = true;
+        setTimeout(() => images.value[prevIndex].animate = false, 5000);
+    });
+});
 </script>
 
 <style scoped>
-.zoom-in-out {
-    animation: zoom-in-zoom-out 40s ease infinite;
+.zoom-in {
+    animation: animate-zoom-in 40s ease;
 }
 
-@keyframes zoom-in-zoom-out {
+@keyframes animate-zoom-in {
   0% {
     transform: scale(1, 1);
   }
   50% {
-    transform: scale(1.25, 1.25);
+    transform: scale(1.125, 1.125);
   }
   100% {
-    transform: scale(1, 1);
+    transform: scale(1.25, 1.25);
   }
 }
 </style>

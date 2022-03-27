@@ -1,7 +1,7 @@
 <template>
     <!-- nav menu -->
     <header
-        class="fixed top-0 overflow-hidden z-30 w-full transition-colors duration-700"
+        class="fixed top-0 overflow-hidden z-30 w-full transition-colors duration-700 md:bg-primary md:shadow-lg"
         :class="{'bg-primary shadow-lg': !transparentBackground}"
     >
         <div class="text-accent px-4 py-2 flex items-center justify-between">
@@ -12,6 +12,35 @@
             >
                 <span class="font-medium text-lg">Nephr@SI</span>
             </Link>
+            <!-- menu on nav -->
+            <nav class="hidden md:block">
+                <ul class="flex space-x-0">
+                    <li
+                        v-for="(group, key) in menuGroups"
+                        :key="key"
+                        class="cursor-pointer font-medium px-4 py-2 text-complement bg-primary transition-colors duration-300 hover:text-accent hover:bg-fuchsia-200 rounded-lg"
+                    >
+                        {{ group.title }}
+                    </li>
+                </ul>
+            </nav>
+            <!-- search button -->
+            <button>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                </svg>
+            </button>
             <!-- hamberger menu on mobile -->
             <button
                 class="md:hidden p-2 rounded-full transition-all duration-300 ease-out transform"
@@ -34,7 +63,7 @@
                 </svg>
             </button>
         </div>
-        <!-- menu on mobile -->
+        <!-- side menu on mobile -->
         <nav
             class="md:hidden w-5/6 block fixed left-0 inset-y-0 overflow-y-scroll text-soft-theme-light bg-primary shadow-md transition-transform transform duration-300 ease-in-out"
             :class="{ '-translate-x-full': !mobileMenuVisible }"
@@ -91,6 +120,7 @@
                 :key="key"
                 :href="link.link"
                 class="font-medium"
+                target="_blank"
             >
                 {{ link.title }}
                 <svg
