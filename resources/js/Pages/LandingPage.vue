@@ -91,7 +91,7 @@ const props = defineProps({
     agent: { type: Object, required: true }
 });
 
-const useTruncate = ref(props.agent.browser === 'Safari');
+const useTruncate = false;//ref(props.agent.browser === 'Safari');
 
 const stats = [
     { title: 'บทความ', count: 157, animate: 'fade-right', id: 'article-count-value' },
