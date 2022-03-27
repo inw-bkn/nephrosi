@@ -11,6 +11,7 @@
         data-aos="fade-up"
         :use-truncate="useTruncate"
     />
+
     <section class="bg-topography px-4 py-8 space-y-8">
         <InfoCard
             image="info1.jpeg"

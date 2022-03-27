@@ -4,55 +4,51 @@
             heading="ความรู้สำหรับประชาชน"
             link="#"
         />
-        <Splide
-            class="mt-4"
-            :options="splideOptions"
+        <div
+            class="mt-4 splide"
+            id="article-slides-container"
         >
-            <SplideSlide
-                v-for="(article, index) in articles"
-                :key="article.img"
-            >
-                <div
-                    class="aspect-w-1 aspect-h-1 bg-gradient-to-tl from-complement to-gray-200"
-                    :class="{
-                        'bg-gradient-to-tl': index % 2 === 0,
-                        'bg-gradient-to-tr': index % 2 !== 0,
-                    }"
-                >
-                    <img
-                        class="w-full object-contain object-center"
-                        :src="`/image/${article.img}`"
-                        :alt="article.img"
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li
+                        class="splide__slide"
+                        v-for="(article, index) in articles"
+                        :key="article.img"
                     >
-                </div>
-                <ArticlePeek
-                    class="pt-4 pb-10"
-                    :article="article"
-                    :use-truncate="useTruncate"
-                />
-            </SplideSlide>
-        </Splide>
+                        <div
+                            class="aspect-w-1 aspect-h-1 bg-gradient-to-tl from-complement to-gray-200"
+                            :class="{
+                                'bg-gradient-to-tl': index % 2 === 0,
+                                'bg-gradient-to-tr': index % 2 !== 0,
+                            }"
+                        >
+                            <img
+                                class="w-full object-contain object-center"
+                                :src="`/image/${article.img}`"
+                                :alt="article.img"
+                            >
+                        </div>
+                        <ArticlePeek
+                            class="pt-4 pb-10"
+                            :article="article"
+                            :use-truncate="useTruncate"
+                        />
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
 </template>
 
 <script setup>
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
-import { reactive, ref } from '@vue/reactivity';
+import Splide from '@splidejs/splide';
+import { ref } from '@vue/reactivity';
 import ArticleSectionHeader from '@/Components/Helpers/ArticleSectionHeader';
 import ArticlePeek from '@/Components/Helpers/ArticlePeek';
+import { onMounted } from '@vue/runtime-core';
 
 defineProps({
     useTruncate: { type: Boolean }
-});
-
-const splideOptions = reactive({
-    type: 'loop',
-    rewind: true,
-    arrows: false,
-    pagination: true,
-    autoplay: true,
-    speed: 1000,
-    interval: 7500
 });
 
 const articles = ref([
@@ -61,4 +57,16 @@ const articles = ref([
     { img: 'article3.jpeg', link: '#', title: 'อาหารจานเดียว สำหรับผู้ป่วยฟอกไต', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
     { img: 'article4.jpeg', link: '#', title: 'ยาในโรคไตเรื้อรังและข้อปฏิบัติที่ควรทราบ', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
 ]);
+
+onMounted(() => {
+    new Splide('#article-slides-container', {
+        type: 'loop',
+        rewind: true,
+        arrows: false,
+        pagination: true,
+        autoplay: true,
+        speed: 1000,
+        interval: 7500
+    }).mount();
+});
 </script>
