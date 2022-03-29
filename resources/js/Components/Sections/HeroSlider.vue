@@ -20,7 +20,7 @@
                         :key="image.name"
                     >
                         <img
-                            class="min-h-[66vh] w-full md:object-center object-cover brightness-[0.7] md:min-h-[80vh] lg:min-h-screen"
+                            class="w-full min-h-screen object-cover brightness-[0.7]"
                             :class="{
                                 'object-left': image.left,
                                 'object-center': image.center,
@@ -65,10 +65,7 @@ onMounted(() => {
         pauseOnHover: false,
     }).mount();
 
-    splide.on( 'move', (newIndex, prevIndex, destIndex) => {
-        console.log('newIndex', newIndex);
-        console.log('prevIndex', prevIndex);
-        console.log('destIndex', destIndex);
+    splide.on( 'move', (newIndex, prevIndex) => {
         images.value[newIndex].animate = true;
         setTimeout(() => images.value[prevIndex].animate = false, 5000);
     });
