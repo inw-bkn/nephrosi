@@ -1,10 +1,13 @@
 <template>
     <!-- nav menu -->
     <header
-        class="fixed top-0 overflow-hidden z-30 w-full transition-colors duration-700 md:bg-primary md:shadow-lg"
-        :class="{'bg-primary shadow-lg': !transparentBackground}"
+        class="fixed top-0 z-20 w-full transition-colors duration-300"
+        :class="{
+            'bg-primary shadow-lg': !transparentBackground,
+            'bg-gradient-to-b from-complement': transparentBackground
+        }"
     >
-        <div class="text-accent px-4 py-2 flex items-center justify-between">
+        <div class="text-accent px-4 md:px-6 lg:px-8 flex items-center justify-between">
             <!-- the logo -->
             <Link
                 class="inline-block"
@@ -13,16 +16,47 @@
                 <span class="font-medium text-lg">Nephr@SI</span>
             </Link>
             <!-- menu on nav -->
-            <nav class="hidden md:block">
+            <nav class="hidden md:block relative">
+                <div
+                    class="fixed left-0 right-0 min-h-full top-12 z-10"
+                    @click="hideSubMenu"
+                    v-if="desktopMenuVisible"
+                />
                 <ul class="flex space-x-0">
                     <li
                         v-for="(group, key) in menuGroups"
                         :key="key"
-                        class="cursor-pointer font-medium px-4 py-2 text-complement bg-primary transition-colors duration-300 hover:text-accent hover:bg-fuchsia-200 rounded-lg"
+                        class="cursor-pointer font-medium px-4 py-4 lg:text-lg lg:px-10 xl:px-16"
+                        @mouseover="showSubMenu(group.title)"
+                        @click="showSubMenu(group.title)"
+                        :class="{
+                            'text-complement transition-colors duration-300 border-b-4 border-primary': !transparentBackground,
+                            'text-accent border-accent': activeMenuTitle === group.title
+                        }"
                     >
                         {{ group.title }}
                     </li>
                 </ul>
+                <transition name="fade-appear-above">
+                    <div
+                        class="hidden md:flex fixed top-[60px] lg:top-16 shadow-lg border-t border-complement z-20 inset-x-0 h-1/2"
+                        v-if="desktopMenuVisible"
+                        @mouseleave="hideSubMenu"
+                    >
+                        <div class="w-1/3 m-0 bg-complement py-12" />
+                        <ul class="w-2/3 bg-primary py-12 px-12 text-accent text-lg font-medium space-y-4">
+                            <li
+                                v-for="(link, key) in activeSubMenu"
+                                :key="key"
+                            >
+                                <a
+                                    :href="link.route"
+                                    v-text="link.label"
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                </transition>
             </nav>
             <!-- search button -->
             <button>
@@ -215,7 +249,7 @@
 <script setup>
 import { usePage } from '@inertiajs/inertia-vue3';
 import { ref } from '@vue/reactivity';
-import { watch } from '@vue/runtime-core';
+import { nextTick, onMounted, watch } from '@vue/runtime-core';
 
 const transparentBackground = ref(true);
 
@@ -236,12 +270,49 @@ watch(
         }
 
         if (usePage().props.value.event.name === 'set-nav-transparent-background') {
+            if (desktopMenuVisible.value) {
+                return;
+            }
             transparentBackground.value = usePage().props.value.event.payload;
         }
     }
 );
 
+const showSubMenu = (title) => {
+    transparentBackground.value = false;
+    desktopMenuVisible.value = true;
+    activeMenuTitle.value = title;
+    activeSubMenu.value = [...menuGroups.value.find(menu => menu.title === title).menu];
+};
+
+const hideSubMenu = () => {
+    nextTick(() => {
+        if (oldPageY > pageY) {
+            return;
+        }
+        activeMenuTitle.value = null;
+        desktopMenuVisible.value = false;
+        activeSubMenu.value = [];
+    });
+};
+
+
+let oldPageY = 0;
+let pageY = 0;
+if (usePage().props.value.agent.isDesktop) {
+
+    document.addEventListener('mousemove', (e) => {
+        oldPageY = pageY;
+        pageY = e.pageY;
+    });
+}
+
 const mobileMenuVisible = ref(false);
+const desktopMenuVisible = ref(false);
+const activeMenuTitle = ref(null);
+const activeSubMenu = ref(null);
+
+
 const menuGroups = ref([
     {
         title: 'เกี่ยวกับเรา',
@@ -284,3 +355,24 @@ const menuGroups = ref([
     }
 ]);
 </script>
+
+<style scoped>
+    .fade-appear-above-enter-active {
+        animation: fade-appear-above .2s;
+    }
+    .fade-appear-above-leave-active {
+        animation: fade-appear-above .2s reverse;
+    }
+    @keyframes fade-appear-above {
+        0% {
+            transform: scale(0.9);
+            transform: translateY(20%);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            transform: translateY(0%);
+            opacity: 1;
+        }
+    }
+</style>

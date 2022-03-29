@@ -3,7 +3,7 @@
         <h3 class="mt-0 truncate font-medium">
             {{ article.title }}
         </h3>
-        <article :class="{'mt-2 truncate': useTruncate, 'mt-2 line-clamp-2': !useTruncate}">
+        <article :class="{'mt-2 truncate': useTruncate, 'mt-2 !line-clamp-2': !useTruncate}">
             <Link
                 :href="article.link"
                 class="underline underline-offset-1 decoration-accent"
