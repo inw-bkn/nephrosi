@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <div class="absolute text-center text-white w-full top-[40%] z-10 p-4 md:p-8 text-2xl md:text-4xl leading-normal md:leading-loose">
+        <div class="absolute text-center text-white w-full top-[40%] z-10 p-4 md:p-8 text-2xl md:text-4xl lg:text-[3rem] leading-normal md:leading-loose">
             <p class="font-thin">
                 เป็นผู้นำทางอายุรศาสตร์โรคไต
             </p>

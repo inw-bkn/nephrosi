@@ -43,7 +43,19 @@
                         v-if="desktopMenuVisible"
                         @mouseleave="hideSubMenu"
                     >
-                        <div class="w-1/3 m-0 bg-complement py-12" />
+                        <div class="w-1/3 flex items-center m-0 bg-gradient-to-br from-complement to-gray-200 text-primary py-12 px-6 lg:py-12">
+                            <div class="relative py-4">
+                                <div class="absolute font-sans text-gray-200 text-4xl top-0 left-0">
+                                    “
+                                </div>
+                                <p class="px-6 w-full font-medium text-lg lg:text-xl text-center">
+                                    {{ activeSubtitle }}
+                                </p>
+                                <div class="absolute font-sans text-gray-200 text-4xl bottom-0 right-0">
+                                    ”
+                                </div>
+                            </div>
+                        </div>
                         <ul class="w-2/3 bg-primary py-12 px-12 text-accent text-lg font-medium space-y-4">
                             <li
                                 v-for="(link, key) in activeSubMenu"
@@ -282,7 +294,9 @@ const showSubMenu = (title) => {
     transparentBackground.value = false;
     desktopMenuVisible.value = true;
     activeMenuTitle.value = title;
-    activeSubMenu.value = [...menuGroups.value.find(menu => menu.title === title).menu];
+    let activeMenu = menuGroups.value.find(menu => menu.title === title);
+    activeSubMenu.value = [...activeMenu.menu];
+    activeSubtitle.value = activeMenu.subtitle;
 };
 
 const hideSubMenu = () => {
@@ -293,6 +307,7 @@ const hideSubMenu = () => {
         activeMenuTitle.value = null;
         desktopMenuVisible.value = false;
         activeSubMenu.value = [];
+        activeSubtitle.value = null;
     });
 };
 
@@ -311,11 +326,13 @@ const mobileMenuVisible = ref(false);
 const desktopMenuVisible = ref(false);
 const activeMenuTitle = ref(null);
 const activeSubMenu = ref(null);
+const activeSubtitle = ref(null);
 
 
 const menuGroups = ref([
     {
         title: 'เกี่ยวกับเรา',
+        subtitle: 'เป็นผู้นำทางอายุรศาสตร์โรคไตของเอเซีย',
         showMenu: false,
         menu: [
             { label: 'ประวัติ', route: '#' },
@@ -327,6 +344,7 @@ const menuGroups = ref([
     },
     {
         title: 'การศึกษาและบริการ',
+        subtitle: 'ผลิตอายุรแพทย์โรคไตให้มีคุณภาพ มีความรู้ความชำนาญในวิชาชีพ มีคุณธรรม กอปรด้วยจริยธรรมที่ดีงาม และเป็นสากล',
         showMenu: false,
         menu: [
             { label: 'สมัครเรียน', route: '#' },
@@ -337,6 +355,7 @@ const menuGroups = ref([
     },
     {
         title: 'งานวิจัย',
+        subtitle: 'สร้างสรรค์งานวิจัย เพื่อความ เป็นเลิศทางด้านโรคไต เพื่อก่อให้เกิดประโยชน์สูงสุดต่อระบบสาธารณสุขของประเทศไทย',
         showMenu: false,
         menu: [
             { label: 'งานวิจัยที่กำลังดำเนินการ', route: '#' },
@@ -345,6 +364,7 @@ const menuGroups = ref([
     },
     {
         title: 'ความรู้สำหรับประชาชน',
+        subtitle: 'ส่งเสริมสุขภาพ โดยยึดผู้ป่วยเป็นศูนย์กลาง บนพื้นฐานของการดูแลแบบองค์รวม',
         showMenu: false,
         menu: [
             { label: 'ความรู้เรื่องโรคไต', route: '#' },
@@ -366,7 +386,7 @@ const menuGroups = ref([
     @keyframes fade-appear-above {
         0% {
             transform: scale(0.9);
-            transform: translateY(20%);
+            transform: translateY(5%);
             opacity: 0;
         }
         100% {

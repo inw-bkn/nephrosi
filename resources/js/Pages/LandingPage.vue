@@ -1,6 +1,15 @@
 <template>
     <Head title="Nephr@SI" />
     <HeroSlider data-aos="fade-down" />
+
+    <section class="flex w-full overflow-x-scroll">
+        <div class=" min-w-[33%] bg-slate-100 h-64" />
+        <div class=" min-w-[33%] bg-slate-300 h-64" />
+        <div class=" min-w-[33%] bg-slate-500 h-64" />
+        <div class=" min-w-[33%] bg-slate-700 h-64" />
+        <div class=" min-w-[33%] bg-slate-900 h-64" />
+    </section>
+
     <NewsPostAlt
         class="p-4 mb-8"
         data-aos="fade-up"
