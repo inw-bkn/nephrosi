@@ -3,18 +3,19 @@
     <HeroSlider data-aos="fade-down" />
 
     <NewsPostAlt
-        class="mt-16 md:mt-24 lg:mt-32"
+        class="mt-16 md:mt-24 xl:mt-32"
         data-aos="fade-up"
         :use-truncate="useTruncate"
     />
 
     <ArticlePost
-        class="bg-gray-100 mt-16 md:mt-24 lg:mt-32 md:pt-24 lg:pt-32"
+        class="bg-gray-100 mt-16 md:mt-24 xl:mt-32 md:pt-24 xl:pt-32"
         data-aos="fade-up"
         :use-truncate="useTruncate"
     />
 
-    <section class="bg-topography px-4 py-8 space-y-8 md:p-24 md:space-y-24 lg:p-24 lg:pt-0 lg:grid grid-cols-3 gap-x-8">
+    <!-- info section -->
+    <section class="bg-topography px-4 py-8 space-y-8 md:p-24 md:space-y-24 xl:p-32 xl:pt-0 xl:grid grid-cols-3 gap-x-8">
         <InfoCard
             image="info1.jpeg"
             animate="zoom-in-up"
@@ -52,27 +53,35 @@
             </div>
         </InfoCard>
     </section>
-    <section class="px-4 py-8 md:px-16 md:py-24">
-        <div class="grid grid-cols-2 justify-center gap-x-8">
-            <div class="flex items-center justify-center aspect-1 bg-complement-alt rounded-full z-10">
-                <div class="text-4xl text-primary">
-                    สถิติ
+
+    <!-- stat section -->
+    <section class="px-4 py-8 md:p-24 md:pb-0 xl:p-32">
+        <div class="grid grid-cols-2 gap-x-8 xl:grid-cols-6 xl:gap-x-6">
+            <div class="aspect-w-1 aspect-h-1">
+                <div class="flex items-center justify-center bg-complement-alt rounded-full z-10">
+                    <div class="text-4xl xl:text-xl text-primary">
+                        สถิติ
+                    </div>
                 </div>
             </div>
             <div
+                class="aspect-w-1 aspect-h-1"
                 v-for="stat in stats"
                 :key="stat.id"
-                class="aspect-1 text-center flex flex-col items-center justify-center space-y-4 bg-primary"
-                :data-aos="stat.animate"
-                data-stat-counting="true"
-                :data-stat-count="stat.count"
             >
-                <p class="font-medium text-complement-alt text-4xl">
-                    +<span v-text="stat.count" />
-                </p>
-                <p class="text-md">
-                    {{ stat.title }}
-                </p>
+                <div
+                    class="text-center flex flex-col items-center justify-center space-y-4 xl:bg-gray-100 xl:rounded-full xl:border-2 border-dashed border-complement-alt"
+                    :data-aos="stat.animate"
+                    data-stat-counting="true"
+                    :data-stat-count="stat.count"
+                >
+                    <p class="font-medium text-complement-alt text-4xl xl:text-xl">
+                        +<span v-text="stat.count" />
+                    </p>
+                    <p class="text-md">
+                        {{ stat.title }}
+                    </p>
+                </div>
             </div>
         </div>
     </section>

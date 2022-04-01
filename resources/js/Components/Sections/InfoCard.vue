@@ -1,6 +1,6 @@
 <template>
     <a
-        class="aspect-w-2 aspect-h-1 w-full shadow-lg block lg:hidden"
+        class="aspect-w-2 aspect-h-1 w-full shadow-lg block xl:hidden"
         :data-aos="animate"
         :href="link"
     >
@@ -31,7 +31,7 @@
     </a>
 
     <a
-        class="hidden lg:block w-full aspect-w-1 aspect-h-1 shadow-lg relative"
+        class="hidden xl:block w-full aspect-w-1 aspect-h-1 shadow-lg relative"
         :data-aos="animate"
         :href="link"
     >
