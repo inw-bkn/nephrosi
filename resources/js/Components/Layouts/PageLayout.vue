@@ -157,10 +157,10 @@
     </header>
     <slot />
     <section class="bg-bank-note px-4 py-8 md:p-24 lg:p-32">
-        <h2 class="text-2xl font-medium text-complement-alt">
+        <h2 class="text-2xl font-medium text-complement-alt md:text-4xl">
             เว็บไซต์ที่เกี่ยวข้อง
         </h2>
-        <div class="grid grid-rows-3 grid-flow-col gap-4 mt-6">
+        <div class="grid grid-rows-3 grid-flow-col lg:grid-flow-row lg:grid-cols-3 gap-4 lg:gap-8 mt-6 md:mt-12 lg:mt-16">
             <a
                 v-for="(link, key) in externalLinks"
                 :key="key"
