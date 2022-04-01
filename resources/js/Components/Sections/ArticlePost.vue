@@ -3,7 +3,7 @@
         <ArticleSectionHeader
             heading="ความรู้สำหรับประชาชน"
             link="#"
-            class="py-8 md:pt-0 md:pb-10 lg:pb-16"
+            class="py-8 md:pt-0 md:pb-10 xl:pb-16"
         />
         <!-- mobile  -->
         <div
