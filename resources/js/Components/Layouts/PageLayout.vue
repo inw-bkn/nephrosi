@@ -160,18 +160,18 @@
         <h2 class="text-2xl font-medium text-complement-alt md:text-4xl">
             เว็บไซต์ที่เกี่ยวข้อง
         </h2>
-        <div class="grid grid-rows-3 grid-flow-col lg:grid-flow-row lg:grid-cols-3 gap-4 lg:gap-8 mt-6 md:mt-12 lg:mt-16">
+        <div class="grid grid-rows-3 grid-flow-col lg:grid-flow-row lg:grid-cols-3 gap-4 lg:gap-x-8 lg:gap-y-12 mt-6 md:mt-12 lg:mt-16">
             <a
                 v-for="(link, key) in externalLinks"
                 :key="key"
                 :href="link.link"
-                class="font-medium"
+                class="font-medium lg:text-lg"
                 target="_blank"
             >
                 {{ link.title }}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-accent inline"
+                    class="h-4 w-4 lg:h-5 lg:w-5 text-accent inline"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -187,65 +187,70 @@
         </div>
     </section>
     <footer class="bg-complement font-thin text-primary/70 p-4 md:p-24 lg:p-32">
-        <div class="text-primary font-medium text-lg">
-            <p>สาขาวิชาวักกะวิทยา</p>
-            <p>ศิริราชพยาบาล</p>
-        </div>
-        <div class="mt-4 underline decoration-accent space-x-2">
-            <Link href="#">
-                นโยบายความเป็นส่วนตัว
-            </Link>
-            <span>|</span>
-            <Link href="#">
-                ที่ตั้ง
-            </Link>
-            <span>|</span>
-            <Link href="#">
-                ติดต่อเรา
-            </Link>
+        <div class="md:flex justify-between items-start">
+            <div class="text-primary font-medium text-lg md:text-xl">
+                <p>สาขาวิชาวักกะวิทยา</p>
+                <p class="md:mt-4">
+                    ศิริราชพยาบาล
+                </p>
+            </div>
+            <div class="mt-4 md:mt-0 underline decoration-accent text-lg space-x-2">
+                <Link href="#">
+                    นโยบายความเป็นส่วนตัว
+                </Link>
+                <span>|</span>
+                <Link href="#">
+                    ที่ตั้ง
+                </Link>
+                <span>|</span>
+                <Link href="#">
+                    ติดต่อเรา
+                </Link>
+            </div>
         </div>
 
-        <div class="mt-4">
-            <p>อาคารหอพักพยาบาล 3 รพ.ศิริราช</p>
-            <p>แขวงบางกอกน้อย กรุงเทพฯ 10700</p>
-            <div class="flex items-center space-x-4">
-                <a href="tel:024198385">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="mr-1 inline h-4 w-5 text-accent"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                    </svg>
-                    <span>024198385</span>
-                </a>
-                <a href="mailto:contact@nephrosi.org">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="mr-1 inline h-4 w-5 text-accent"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                    </svg>
-                    <span>contact@nephrosi.org</span>
-                </a>
+        <div class="mt-4 md:mt-8 text-lg">
+            <div class="lg:flex lg:space-x-8">
+                <p>อาคารหอพักพยาบาล 3 รพ.ศิริราช <br class="md:hidden"> แขวงบางกอกน้อย กรุงเทพฯ 10700</p>
+                <div class="flex items-center space-x-4">
+                    <a href="tel:024198385">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="mr-1 inline h-4 w-5 text-accent"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                            />
+                        </svg>
+                        <span>024198385</span>
+                    </a>
+                    <a href="mailto:contact@nephrosi.org">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="mr-1 inline h-4 w-5 text-accent"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                            />
+                        </svg>
+                        <span>contact@nephrosi.org</span>
+                    </a>
+                </div>
             </div>
 
-            <p class="mt-4 text-xs">
+            <p class="mt-4 md:mt-12 md:text-center text-xs md:text-base">
                 © สงวนลิขสิทธิ์ 2022 สาขาวิชาวักกะวิทยา ศิริราชพยาบาล
             </p>
         </div>
