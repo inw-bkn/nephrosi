@@ -14,7 +14,7 @@
         :use-truncate="useTruncate"
     />
 
-    <section class="bg-topography px-4 py-8 space-y-8 md:px-16 md:py-24 md:space-y-24">
+    <section class="bg-topography px-4 py-8 space-y-8 md:p-24 md:space-y-24 lg:p-24 lg:pt-0 lg:grid grid-cols-3 gap-x-8">
         <InfoCard
             image="info1.jpeg"
             animate="zoom-in-up"
