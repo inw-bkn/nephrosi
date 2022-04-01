@@ -1,6 +1,6 @@
 <template>
-    <div class="flex items-end justify-between my-8">
-        <h2 class="text-2xl font-medium text-complement-alt">
+    <div class="flex items-end md:items-center justify-between px-4 md:px-16 lg:px-24">
+        <h2 class="text-2xl font-medium text-complement-alt md:text-4xl">
             {{ heading }}
         </h2>
         <Link
@@ -9,7 +9,7 @@
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
+                class="h-6 w-6 md:h-8 md:w-8 lg:w-10"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

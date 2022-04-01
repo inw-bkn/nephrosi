@@ -156,7 +156,7 @@
         </nav>
     </header>
     <slot />
-    <section class="bg-bank-note px-4 py-8">
+    <section class="bg-bank-note px-4 py-8 md:p-24 lg:p-32">
         <h2 class="text-2xl font-medium text-complement-alt">
             เว็บไซต์ที่เกี่ยวข้อง
         </h2>
@@ -186,7 +186,7 @@
             </a>
         </div>
     </section>
-    <footer class="bg-complement font-thin text-primary/70 p-4">
+    <footer class="bg-complement font-thin text-primary/70 p-4 md:p-24 lg:p-32">
         <div class="text-primary font-medium text-lg">
             <p>สาขาวิชาวักกะวิทยา</p>
             <p>ศิริราชพยาบาล</p>
@@ -209,10 +209,7 @@
             <p>อาคารหอพักพยาบาล 3 รพ.ศิริราช</p>
             <p>แขวงบางกอกน้อย กรุงเทพฯ 10700</p>
             <div class="flex items-center space-x-4">
-                <a
-
-                    href="tel:024198385"
-                >
+                <a href="tel:024198385">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="mr-1 inline h-4 w-5 text-accent"
@@ -229,10 +226,7 @@
                     </svg>
                     <span>024198385</span>
                 </a>
-                <a
-
-                    href="mailto:contact@nephrosi.org"
-                >
+                <a href="mailto:contact@nephrosi.org">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="mr-1 inline h-4 w-5 text-accent"

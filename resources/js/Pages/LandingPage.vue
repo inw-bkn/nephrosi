@@ -2,26 +2,19 @@
     <Head title="Nephr@SI" />
     <HeroSlider data-aos="fade-down" />
 
-    <section class="flex w-full overflow-x-scroll">
-        <div class=" min-w-[33%] bg-slate-100 h-64" />
-        <div class=" min-w-[33%] bg-slate-300 h-64" />
-        <div class=" min-w-[33%] bg-slate-500 h-64" />
-        <div class=" min-w-[33%] bg-slate-700 h-64" />
-        <div class=" min-w-[33%] bg-slate-900 h-64" />
-    </section>
-
     <NewsPostAlt
-        class="p-4 mb-8"
-        data-aos="fade-up"
-        :use-truncate="useTruncate"
-    />
-    <ArticlePost
-        class="bg-gray-100 p-4 pb-8"
+        class="mt-16 md:mt-24 lg:mt-32"
         data-aos="fade-up"
         :use-truncate="useTruncate"
     />
 
-    <section class="bg-topography px-4 py-8 space-y-8">
+    <ArticlePost
+        class="bg-gray-100 mt-16 md:mt-24 lg:mt-32 md:pt-24 lg:pt-32"
+        data-aos="fade-up"
+        :use-truncate="useTruncate"
+    />
+
+    <section class="bg-topography px-4 py-8 space-y-8 md:px-16 md:py-24 md:space-y-24">
         <InfoCard
             image="info1.jpeg"
             animate="zoom-in-up"
@@ -59,7 +52,7 @@
             </div>
         </InfoCard>
     </section>
-    <section class="px-4 py-8">
+    <section class="px-4 py-8 md:px-16 md:py-24">
         <div class="grid grid-cols-2 justify-center gap-x-8">
             <div class="flex items-center justify-center aspect-1 bg-complement-alt rounded-full z-10">
                 <div class="text-4xl text-primary">
