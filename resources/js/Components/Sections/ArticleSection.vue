@@ -41,10 +41,25 @@
         </div>
 
         <!-- tablet & desktop  -->
-        <div class="hidden md:grid grid-flow-col grid-rows-1 overflow-x-scroll">
-            <div class="w-32 lg:40 xl:w-48" />
+        <div class="hidden md:grid grid-flow-col grid-rows-1 overflow-x-scroll pb-24 lg:pb-32">
+            <div class="flex items-center justify-center w-32 lg:40 xl:w-48 overflow-hidden">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-full text-gray-200 scale-[300%]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M11 19l-7-7 7-7m8 14l-7-7 7-7"
+                    />
+                </svg>
+            </div>
             <div
-                class="w-64 px-4 lg:w-80 lg:px-6 xl:w-96 xl:px-8 pt-0 pb-24 lg:pb-32"
+                class="w-64 px-4 lg:w-80 lg:px-6 xl:w-96 xl:px-8 pt-0"
                 v-for="(article, index) in articles"
                 :key="article.img"
             >
