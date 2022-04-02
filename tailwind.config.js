@@ -10,7 +10,8 @@ module.exports = {
         extend: {
             colors: {
                 primary: colors.white,
-                accent: '#86198F', // fuchsia-800
+                // accent: '#86198F', // fuchsia-800
+                accent: '#af3246', // fuchsia-800
                 complement: '#374151', // gray-700
                 'complement-alt': '#4f9c88',
             }
