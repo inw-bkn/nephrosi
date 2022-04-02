@@ -156,7 +156,7 @@
         </nav>
     </header>
     <slot />
-    <section class="bg-bank-note px-4 py-8 md:p-24 xl:p-32 xl:pb-20">
+    <section class="bg-bank-note px-4 py-8 md:px-16 md:py-24 xl:px-24 xl:pt-32 xl:pb-20">
         <h2 class="text-2xl font-medium text-complement-alt md:text-4xl">
             เว็บไซต์ที่เกี่ยวข้อง
         </h2>
@@ -186,8 +186,8 @@
             </a>
         </div>
     </section>
-    <footer class="bg-complement font-thin text-primary/70 p-4 md:p-24 xl:p-32">
-        <div class="lg:flex justify-between items-start">
+    <footer class="bg-complement font-thin text-primary/70 p-4 md:px-16 md:py-24 xl:px-24 md:py-24 xl:py-32">
+        <div class="md:flex justify-between items-start">
             <div class="flex items-center">
                 <img
                     src="/image/mu-logo.png"
@@ -201,7 +201,7 @@
                     </p>
                 </div>
             </div>
-            <div class="mt-4 lg:mt-0 underline decoration-accent text-lg space-x-2">
+            <div class="mt-4 md:mt-0 underline decoration-accent text-lg space-x-2">
                 <Link href="#">
                     นโยบายความเป็นส่วนตัว
                 </Link>
@@ -216,8 +216,8 @@
             </div>
         </div>
 
-        <div class="mt-4 lg:mt-8 text-lg">
-            <div class="xl:flex xl:space-x-8">
+        <div class="mt-4 lg:mt-12 text-lg">
+            <div class="lg:flex justify-between">
                 <p>อาคารหอพักพยาบาล 3 รพ.ศิริราช <br class="lg:hidden"> แขวงบางกอกน้อย กรุงเทพฯ 10700</p>
                 <div class="flex items-center space-x-4">
                     <a href="tel:024198385">

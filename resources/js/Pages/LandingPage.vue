@@ -1,14 +1,14 @@
 <template>
     <Head title="Nephr@SI" />
-    <HeroSlider data-aos="fade-down" />
+    <HeroSection data-aos="fade-down" />
 
-    <NewsPostAlt
+    <NewsSection
         class="mt-16 md:mt-24 xl:mt-32"
         data-aos="fade-up"
         :use-truncate="useTruncate"
     />
 
-    <ArticlePost
+    <ArticleSection
         class="bg-gray-100 mt-16 md:mt-24 xl:mt-32 md:pt-24 xl:pt-32"
         data-aos="fade-up"
         :use-truncate="useTruncate"
@@ -88,10 +88,9 @@
 </template>
 
 <script setup>
-import HeroSlider from '@/Components/Sections/HeroSlider';
-import NewsPost from '@/Components/Sections/NewsPost';
-import NewsPostAlt from '@/Components/Sections/NewsPostAlt';
-import ArticlePost from '@/Components/Sections/ArticlePost';
+import HeroSection from '@/Components/Sections/HeroSection';
+import NewsSection from '@/Components/Sections/NewsSection';
+import ArticleSection from '@/Components/Sections/ArticleSection';
 import InfoCard from '@/Components/Sections/InfoCard';
 import { onMounted, ref } from '@vue/runtime-core';
 import AOS from 'aos';

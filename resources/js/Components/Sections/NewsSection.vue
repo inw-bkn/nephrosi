@@ -81,50 +81,26 @@
                     <div class="h-1/2 grid grid-cols-2">
                         <a
                             class="group block overflow-hidden relative border-primary border-b-4 border-r-4 xl:border-b-8 xl:border-r-8"
-                            :href="news[2].route"
+                            :href="article.route"
+                            v-for="(article, key) in news.slice(2)"
+                            :key="key"
                         >
                             <img
                                 class="w-full h-full object-center object-cover brightness-[0.7] transition-transform duration-500 group-hover:scale-110"
-                                :src="`/image/${news[2].img}`"
+                                :src="`/image/${article.img}`"
                                 alt="2nd"
                             >
                             <div class="absolute h-full top-0">
                                 <div class="flex items-end h-full">
                                     <div class="text-primary font-medium p-2 xl:p-4">
                                         <h3 class="text xl:text-xl xl:leading-[1.5rem]">
-                                            {{ news[2].title }}
+                                            {{ article.title }}
                                         </h3>
                                         <div class="flex max-w-fit mt-2 xl:mt-4 border-l-2 border-complement-alt space-x-1 xl:space-x-2 p-1 xl:px-2 transition-colors duration-500 ease-in-out group-hover:bg-primary group-hover:text-complement-alt">
-                                            <div class="text-sm xl:text-2xl">{{ news[2].d }}</div>
+                                            <div class="text-sm xl:text-2xl">{{ article.d }}</div>
                                             <div class="text-[0.5rem] xl:text-xs">
-                                                <div>{{ news[2].m }}</div>
-                                                <div>{{ news[2].y }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a
-                            class="group block overflow-hidden relative border-primary border-b-4 border-r-4 xl:border-b-8 xl:border-r-8"
-                            :href="news[3].route"
-                        >
-                            <img
-                                class="w-full h-full object-center object-cover brightness-[0.7] transition-transform duration-500 group-hover:scale-110"
-                                :src="`/image/${news[3].img}`"
-                                alt="2nd"
-                            >
-                            <div class="absolute h-full top-0">
-                                <div class="flex items-end h-full">
-                                    <div class="text-primary font-medium p-2 xl:p-4">
-                                        <h3 class="text xl:text-xl xl:leading-[1.5rem]">
-                                            {{ news[3].title }}
-                                        </h3>
-                                        <div class="flex max-w-fit mt-2 xl:mt-4 border-l-2 border-complement-alt space-x-1 xl:space-x-2 p-1 xl:px-2 transition-colors duration-500 ease-in-out group-hover:bg-primary group-hover:text-complement-alt">
-                                            <div class="text-sm xl:text-2xl">{{ news[3].d }}</div>
-                                            <div class="text-[0.5rem] xl:text-xs">
-                                                <div>{{ news[3].m }}</div>
-                                                <div>{{ news[3].y }}</div>
+                                                <div>{{ article.m }}</div>
+                                                <div>{{ article.y }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +125,7 @@ defineProps({
 const news = ref([
     { img: 'news2.jpeg', route: '#', d: 14, m: 'FEB', y: 2022, title: 'สารจากหัวหน้าสาขาวิชาวักกะวิทยา ศิริราชพยาบาล', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
     { img: 'news1-1.jpeg', route: '#', d: 25, m: 'JAN', y: 2022, title: 'รับสมัครเฟลโลว์อนุสาขาอายุรศาสตร์โรตไต ประจำปีการศึกษา 2566', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-    { img: 'news3.jpeg', route: '#', d: '07', m: 'DEC', y: 2021, title: 'เจ้าหน้าที่สาขาฯ รับรางวัลคนดีศรีอายุศาสตร์ประเภทอาวุโส', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'news3.jpeg', route: '#', d: '07', m: 'DEC', y: 2021, title: 'เจ้าหน้าที่สาขาฯ รับรางวัลคนดีศรีอายุรศาสตร์ประเภทอาวุโส', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
     { img: 'news4.jpeg', route: '#', d: 11, m: 'NOV', y: 2021, title: 'อาจารย์ประจำสาขาฯ รับตำแหน่งนายกสมาคมคนนอนดูซีรีย์อยู่บ้าน', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
 ]);
 </script>
