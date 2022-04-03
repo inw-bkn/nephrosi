@@ -10,10 +10,15 @@
         <div class="text-accent px-4 md:px-6 lg:px-8 flex items-center justify-between">
             <!-- the logo -->
             <Link
-                class="inline-block"
+                class="inline-flex items-center"
                 href="#"
             >
-                <span class="font-medium text-lg">Nephr@SI</span>
+                <img
+                    src="/image/logo-xs.png"
+                    alt="logo"
+                    class="h-8 w-8"
+                >
+                <span class="ml-2 font-medium text-lg">Nephr@SI</span>
             </Link>
             <!-- menu on nav -->
             <nav class="hidden md:block relative">
@@ -61,7 +66,7 @@
                                 v-for="(link, key) in activeSubMenu"
                                 :key="key"
                             >
-                                <a
+                                <Link
                                     :href="link.route"
                                     v-text="link.label"
                                 />
@@ -145,10 +150,13 @@
                         v-if="group.showMenu"
                     >
                         <li
-                            v-for="(item, key) in group.menu"
+                            v-for="(link, key) in group.menu"
                             :key="key"
                         >
-                            {{ item.label }}
+                            <Link
+                                :href="link.route"
+                                v-text="link.label"
+                            />
                         </li>
                     </ul>
                 </transition>
@@ -186,88 +194,92 @@
             </a>
         </div>
     </section>
-    <footer class="bg-complement font-thin text-primary/70 p-4 md:px-16 md:py-24 xl:px-24 md:py-24 xl:py-32">
-        <div class="md:flex justify-between items-start">
+    <footer
+        class="bg-complement font-thin text-primary/70 p-4 py-8 md:p-16 xl:p-24 bg-no-repeat bg-left-top md:bg-top"
+        style="background-image: url('/image/logo-lg.png')"
+    >
+        <div
+            class="md:flex justify-between items-start"
+        >
             <div class="flex items-center">
                 <img
                     src="/image/mu-logo.png"
                     alt="mu logo"
-                    class="block w-16 h-16 lg:w-20 lg:h-20"
+                    class="block w-16 h-16 md:w-20 md:h-20"
                 >
-                <div class="ml-4 text-primary font-medium text-lg lg:text-xl">
+                <div class="ml-4 text-primary font-medium text-lg md:text-xl">
                     <p>สาขาวิชาวักกะวิทยา</p>
-                    <p class="mt-2 lg:mt-4">
+                    <p class="mt-2 md:mt-4">
                         ศิริราชพยาบาล
                     </p>
                 </div>
             </div>
-            <div class="mt-4 md:mt-0 underline decoration-accent text-lg space-x-2">
-                <Link href="#">
-                    นโยบายความเป็นส่วนตัว
-                </Link>
-                <span>|</span>
-                <Link href="#">
-                    ที่ตั้ง
-                </Link>
-                <span>|</span>
-                <Link href="#">
-                    ติดต่อเรา
-                </Link>
-            </div>
-        </div>
-
-        <div class="mt-4 lg:mt-12 text-lg">
-            <div class="lg:flex justify-between">
-                <p>อาคารหอพักพยาบาล 3 รพ.ศิริราช <br class="lg:hidden"> แขวงบางกอกน้อย กรุงเทพฯ 10700</p>
-                <div class="flex items-center space-x-4">
-                    <a href="tel:024198385">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="mr-1 inline h-4 w-5 text-accent"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                            />
-                        </svg>
-                        <span>024198385</span>
-                    </a>
-                    <a href="mailto:contact@nephrosi.org">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="mr-1 inline h-4 w-5 text-accent"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                            />
-                        </svg>
-                        <span>contact@nephrosi.org</span>
-                    </a>
+            <div>
+                <div class="mt-4 md:mt-0 underline decoration-accent text-lg space-x-2">
+                    <Link href="#">
+                        นโยบายความเป็นส่วนตัว
+                    </Link>
+                    <span>|</span>
+                    <Link href="#">
+                        ที่ตั้ง
+                    </Link>
+                    <span>|</span>
+                    <Link href="#">
+                        ติดต่อเรา
+                    </Link>
+                </div>
+                <div class="mt-4 text-lg">
+                    <p>อาคารหอพักพยาบาล 3 รพ.ศิริราช <br class="lg:hidden"> แขวงบางกอกน้อย กรุงเทพฯ 10700</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="tel:024198385">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="mr-1 inline h-4 w-5 text-accent"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                                />
+                            </svg>
+                            <span>024198385</span>
+                        </a>
+                        <a href="mailto:contact@nephrosi.org">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="mr-1 inline h-4 w-5 text-accent"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                />
+                            </svg>
+                            <span>contact@nephrosi.org</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-
-            <p class="mt-4 lg:mt-12 lg:text-center text-xs lg:text-base">
-                © สงวนลิขสิทธิ์ 2022 สาขาวิชาวักกะวิทยา ศิริราชพยาบาล
-            </p>
         </div>
+
+        <p class="mt-4 md:mt-12 md:text-center text-xs md:text-base">
+            © สงวนลิขสิทธิ์ 2022 สาขาวิชาวักกะวิทยา ศิริราชพยาบาล
+        </p>
     </footer>
 </template>
 
 <script setup>
 import { usePage } from '@inertiajs/inertia-vue3';
 import { ref } from '@vue/reactivity';
-import { nextTick, onMounted, watch } from '@vue/runtime-core';
+import { nextTick, watch } from '@vue/runtime-core';
 
 const transparentBackground = ref(true);
 

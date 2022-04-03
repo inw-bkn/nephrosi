@@ -1,7 +1,7 @@
 <template>
     <section>
         <ArticleSectionHeader
-            heading="ความรู้สำหรับประชาชน"
+            heading="บทความ"
             link="#"
             class="py-8 md:pt-0 md:pb-10 xl:pb-16"
         />
@@ -45,7 +45,7 @@
             <div class="flex items-center justify-center w-32 lg:40 xl:w-48 overflow-hidden">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-full text-gray-200 scale-[300%]"
+                    class="w-64 lg:w-80 xl:w-96 text-gray-200 scale-[300%]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -101,6 +101,8 @@ defineProps({
 const articles = ref([
     { img: 'article1.jpeg', link: '#', title: 'พบหมอศิริราช ลดเสี่ยง เลี่ยงโรคไต', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
     { img: 'article2.jpeg', link: '#', title: 'พบหมอศิริราช มารู้จักโซเดียมกัน', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'article5.jpeg', link: '#', title: 'แกงฮังเล 2 สหายสำหรับผู้ป่วยโรคไต', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'article6.jpeg', link: '#', title: 'พบหมอศิริราช สุขภาพไต ดูแลให้ดี', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
     { img: 'article3.jpeg', link: '#', title: 'อาหารจานเดียว สำหรับผู้ป่วยฟอกไต', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
     { img: 'article4.jpeg', link: '#', title: 'ยาในโรคไตเรื้อรังและข้อปฏิบัติที่ควรทราบ', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
 ]);
