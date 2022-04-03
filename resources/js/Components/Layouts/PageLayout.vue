@@ -279,7 +279,7 @@
 <script setup>
 import { usePage } from '@inertiajs/inertia-vue3';
 import { ref } from '@vue/reactivity';
-import { nextTick, onMounted, watch } from '@vue/runtime-core';
+import { nextTick, watch } from '@vue/runtime-core';
 
 const transparentBackground = ref(true);
 
