@@ -15,7 +15,7 @@
 
         <style>
             .splide__pagination__page {
-                background: #86198F!important;
+                background: #af3246!important;
             }
             .splide__pagination__page.is-active{
                 background: #4f9c88!important;
