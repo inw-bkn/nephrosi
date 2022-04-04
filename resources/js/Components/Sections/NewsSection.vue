@@ -12,9 +12,12 @@
             :key="key"
             class="md:hidden flex items-center p-4 space-x-8 border-b border-dashed border-complement-alt"
         >
-            <div class="w-2/3 text-center underline underline-offset-1 decoration-accent">
+            <Link
+                class="block w-2/3 text-center underline underline-offset-1 decoration-accent"
+                :href="article.route"
+            >
                 {{ article.title }}
-            </div>
+            </Link>
             <div class="w-1/3">
                 <img
                     class="w-full object-cover object-center"
