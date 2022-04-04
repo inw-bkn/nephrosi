@@ -6,7 +6,7 @@
         </h1>
         <ul class="text-lg p-8 space-y-4">
             <li class="list-disc">
-                ภาพปก หรือ คลิปวีดีโอ(ถ้มี)
+                ภาพปก หรือ คลิปวีดีโอ(ถ้ามี)
             </li>
             <li class="list-disc">
                 เอกสารที่ให้ download ได้ (ถ้ามี)
