@@ -218,15 +218,15 @@
             </div>
             <div>
                 <div class="mt-4 md:mt-0 underline decoration-accent text-lg space-x-2">
-                    <Link href="#">
+                    <Link href="/privacy-policy">
                         นโยบายความเป็นส่วนตัว
                     </Link>
                     <span>|</span>
-                    <Link href="#">
+                    <Link href="/contact#map">
                         ที่ตั้ง
                     </Link>
                     <span>|</span>
-                    <Link href="#">
+                    <Link href="/contact#tel">
                         ติดต่อเรา
                     </Link>
                 </div>
@@ -356,10 +356,10 @@ const menuGroups = ref([
         showMenu: false,
         menu: [
             { label: 'ประวัติ', route: '/history' },
-            { label: 'วิสัยทัศน์และพันธกิจ', route: '#' },
-            { label: 'สารจากหัวหน้าสาขาฯ', route: '#' },
-            { label: 'บุลคลากร', route: '#' },
-            { label: 'ติดต่อเรา', route: '#' },
+            { label: 'วิสัยทัศน์และพันธกิจ', route: '/vision-mission' },
+            { label: 'สารจากหัวหน้าสาขาฯ', route: '/message-from-chairman' },
+            { label: 'บุลคลากร', route: '/staffs' },
+            { label: 'ติดต่อเรา', route: '/contact' },
         ]
     },
     {
@@ -367,10 +367,11 @@ const menuGroups = ref([
         subtitle: 'ผลิตอายุรแพทย์โรคไตให้มีคุณภาพ มีความรู้ความชำนาญในวิชาชีพ มีคุณธรรม กอปรด้วยจริยธรรมที่ดีงาม และเป็นสากล',
         showMenu: false,
         menu: [
-            { label: 'สมัครเรียน', route: '#' },
-            { label: 'โครงการอบรม', route: '#' },
-            { label: 'วิชาการ', route: '#' },
-            { label: 'Club Nephro', route: '#' },
+            { label: 'สมัครเรียน', route: '/admission' },
+            { label: 'โครงการฝึกอบรม', route: '/training-programs' },
+            { label: 'วิชาการ', route: '/academic-service' },
+            { label: 'คลินิก', route: '/clinics' },
+            { label: 'Club Nephro', route: '/club-nephro' },
         ]
     },
     {
@@ -378,8 +379,8 @@ const menuGroups = ref([
         subtitle: 'สร้างสรรค์งานวิจัย เพื่อความ เป็นเลิศทางด้านโรคไต เพื่อก่อให้เกิดประโยชน์สูงสุดต่อระบบสาธารณสุขของประเทศไทย',
         showMenu: false,
         menu: [
-            { label: 'งานวิจัยที่กำลังดำเนินการ', route: '#' },
-            { label: 'ผลงานวิจัย', route: '#' },
+            { label: 'งานวิจัยที่กำลังดำเนินการ', route: '/research/งานวิจัยที่กำลังดำเนินการ' },
+            { label: 'ผลงานวิจัยตีพิมพ์', route: '/research/ผลงานวิจัยตีพิมพ์' },
         ]
     },
     {
@@ -387,10 +388,12 @@ const menuGroups = ref([
         subtitle: 'ส่งเสริมสุขภาพ โดยยึดผู้ป่วยเป็นศูนย์กลาง บนพื้นฐานของการดูแลแบบองค์รวม',
         showMenu: false,
         menu: [
-            { label: 'ความรู้เรื่องโรคไต', route: '#' },
-            { label: 'ไตวายเรื้อรัง', route: '#' },
-            { label: 'หัตถการ', route: '#' },
-            { label: 'การปลูกถ่ายไต', route: '#' },
+            { label: 'ความรู้เรื่องโรคไต', route: '/articles?tag=ความรู้เรื่องโรคไต' },
+            { label: 'โรคไตวายเรื้อรัง', route: '/articles?tag=โรคไตวายเรื้อรัง' },
+            { label: 'การเจาะไต', route: '/articles?tag=การเจาะไต' },
+            { label: 'การฟอกเลือดด้วยเครื่องไตเทียม', route: '/articles?tag=การฟอกเลือดด้วยเครื่องไตเทียม' },
+            { label: 'การล้างไตทางหน้าท้อง', route: '/articles?tag=การล้างไตทางหน้าท้อง' },
+            { label: 'การปลูกถ่ายไต', route: '/articles?tag=การปลูกถ่ายไต' },
         ]
     }
 ]);

@@ -19,6 +19,7 @@
         <InfoCard
             image="info1.jpeg"
             animate="zoom-in-up"
+            link="/vision-mission"
         >
             <div class="text-2xl  font-medium">
                 วิสัยทัศน์
@@ -30,6 +31,7 @@
         <InfoCard
             image="info2.jpeg"
             animate="zoom-in"
+            link="/training-programs"
         >
             <div class="text-2xl font-medium">
                 หลักสูตรฝึกอบรม
@@ -44,6 +46,7 @@
         <InfoCard
             image="info3.jpeg"
             animate="zoom-in-down"
+            link="/articles?tag=ความรู้สำหรับประชาชน"
         >
             <div class="text-2xl font-medium">
                 ความรู้สำหรับประชาชน
