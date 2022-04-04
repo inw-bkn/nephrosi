@@ -143,6 +143,9 @@ onMounted(() => {
 onUnmounted(() => {
     document.removeEventListener('scroll', handleScrollToggleNavBg);
     document.removeEventListener('aos:in', handleAos);
+    usePage().props.value.event.payload = false;
+    usePage().props.value.event.name = 'set-nav-transparent-background';
+    usePage().props.value.event.fire = + new Date();
 });
 
 const animateValue = (obj, start, end, duration) => {
