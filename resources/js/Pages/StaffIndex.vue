@@ -34,6 +34,9 @@
             <li class="list-disc">
                 ชื่อและตำแหน่งทางวิชาการ
             </li>
+            <li class="list-disc">
+                มี link ไปยังหน้าประวัติส่วนตัวตามสมัครใจ
+            </li>
         </ul>
         <p class="mt-12 font-medium">
             เจ้าหน้าที่
@@ -47,6 +50,9 @@
             </li>
             <li class="list-disc">
                 ชื่อ
+            </li>
+            <li class="list-disc">
+                มี link ไปยังหน้าประวัติส่วนตัวตามสมัครใจ
             </li>
         </ul>
     </article>
