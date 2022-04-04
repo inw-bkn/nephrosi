@@ -2,7 +2,7 @@
     <section>
         <ArticleSectionHeader
             heading="บทความ"
-            link="#"
+            link="/articles"
             class="py-8 md:pt-0 md:pb-10 xl:pb-16"
         />
         <!-- mobile  -->
@@ -99,12 +99,12 @@ defineProps({
 });
 
 const articles = ref([
-    { img: 'article1.jpeg', link: '#', title: 'พบหมอศิริราช ลดเสี่ยง เลี่ยงโรคไต', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-    { img: 'article2.jpeg', link: '#', title: 'พบหมอศิริราช มารู้จักโซเดียมกัน', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-    { img: 'article5.jpeg', link: '#', title: 'แกงฮังเล 2 สหายสำหรับผู้ป่วยโรคไต', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-    { img: 'article6.jpeg', link: '#', title: 'พบหมอศิริราช สุขภาพไต ดูแลให้ดี', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-    { img: 'article3.jpeg', link: '#', title: 'อาหารจานเดียว สำหรับผู้ป่วยฟอกไต', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-    { img: 'article4.jpeg', link: '#', title: 'ยาในโรคไตเรื้อรังและข้อปฏิบัติที่ควรทราบ', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'article1.jpeg', link: '/articles/พบหมอศิริราช ลดเสี่ยง เลี่ยงโรคไต', title: 'พบหมอศิริราช ลดเสี่ยง เลี่ยงโรคไต', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'article2.jpeg', link: '/articles/พบหมอศิริราช มารู้จักโซเดียมกัน', title: 'พบหมอศิริราช มารู้จักโซเดียมกัน', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'article5.jpeg', link: '/articles/แกงฮังเล 2 สหายสำหรับผู้ป่วยโรคไต', title: 'แกงฮังเล 2 สหายสำหรับผู้ป่วยโรคไต', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'article6.jpeg', link: '/articles/พบหมอศิริราช สุขภาพไต ดูแลให้ดี', title: 'พบหมอศิริราช สุขภาพไต ดูแลให้ดี', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'article3.jpeg', link: '/articles/อาหารจานเดียว สำหรับผู้ป่วยฟอกไต', title: 'อาหารจานเดียว สำหรับผู้ป่วยฟอกไต', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
+    { img: 'article4.jpeg', link: '/articles/ยาในโรคไตเรื้อรังและข้อปฏิบัติที่ควรทราบ', title: 'ยาในโรคไตเรื้อรังและข้อปฏิบัติที่ควรทราบ', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
 ]);
 
 onMounted(() => {

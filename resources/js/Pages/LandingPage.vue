@@ -19,6 +19,7 @@
         <InfoCard
             image="info1.jpeg"
             animate="zoom-in-up"
+            link="/vision-mission"
         >
             <div class="text-2xl  font-medium">
                 วิสัยทัศน์
@@ -30,6 +31,7 @@
         <InfoCard
             image="info2.jpeg"
             animate="zoom-in"
+            link="/training-programs"
         >
             <div class="text-2xl font-medium">
                 หลักสูตรฝึกอบรม
@@ -44,6 +46,7 @@
         <InfoCard
             image="info3.jpeg"
             animate="zoom-in-down"
+            link="/articles?tag=ความรู้สำหรับประชาชน"
         >
             <div class="text-2xl font-medium">
                 ความรู้สำหรับประชาชน
@@ -92,7 +95,7 @@ import HeroSection from '@/Components/Sections/HeroSection';
 import NewsSection from '@/Components/Sections/NewsSection';
 import ArticleSection from '@/Components/Sections/ArticleSection';
 import InfoCard from '@/Components/Sections/InfoCard';
-import { onMounted, ref } from '@vue/runtime-core';
+import { onMounted, onUnmounted, ref } from '@vue/runtime-core';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { usePage } from '@inertiajs/inertia-vue3';
@@ -111,23 +114,35 @@ const stats = [
     { title: 'Kidney Transplant', count: 1602, animate: 'fade-right', id: 'kt-count-value' },
 ];
 
+const handleScrollToggleNavBg = () => {
+    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    usePage().props.value.event.payload = window.scrollY < (vh * 0.5);
+    usePage().props.value.event.name = 'set-nav-transparent-background';
+    usePage().props.value.event.fire = + new Date();
+};
+
+const handleAos = ({ detail }) => {
+    if (!detail.dataset.statCounting) {
+        return;
+    }
+    let counting = detail.querySelector('span');
+    animateValue(counting, 0, detail.dataset.statCount, 2500);
+};
+
 onMounted(() => {
     AOS.init({duration: 1200, once: true});
 
-    document.addEventListener('scroll', () => {
-        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-        usePage().props.value.event.payload = window.scrollY < (vh * 0.5);
-        usePage().props.value.event.name = 'set-nav-transparent-background';
-        usePage().props.value.event.fire = + new Date();
-    });
+    usePage().props.value.event.payload = true;
+    usePage().props.value.event.name = 'set-nav-transparent-background';
+    usePage().props.value.event.fire = + new Date();
 
-    document.addEventListener('aos:in', ({ detail }) => {
-        if (!detail.dataset.statCounting) {
-            return;
-        }
-        let counting = detail.querySelector('span');
-        animateValue(counting, 0, detail.dataset.statCount, 2500);
-    });
+    document.addEventListener('scroll', handleScrollToggleNavBg);
+    document.addEventListener('aos:in', handleAos);
+});
+
+onUnmounted(() => {
+    document.removeEventListener('scroll', handleScrollToggleNavBg);
+    document.removeEventListener('aos:in', handleAos);
 });
 
 const animateValue = (obj, start, end, duration) => {

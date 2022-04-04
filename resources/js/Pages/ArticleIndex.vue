@@ -1,0 +1,31 @@
+<template>
+    <Head :title="title" />
+    <article class="mt-16 py-16 px-4 md:py-24 md:px-16 xl:py-32 xl:px-24">
+        <h1 class="text-2xl">
+            {{ title }}
+        </h1>
+        <ul class="text-lg p-8 space-y-4">
+            <li class="list-disc">
+                แสดงรายการบทความที่เกี่ยวข้องกับหัวข้อ
+            </li>
+            <li class="list-disc">
+                แต่ละบทความแสดง ภาพปก ชื่อเรื่อง เนื้อหา 3 บรรทัด(โปรแกรมทำอัตโนมัติ)
+            </li>
+            <li class="list-disc">
+                มี link เข้าไปอ่านบทความฉบับเต็ม
+            </li>
+        </ul>
+    </article>
+</template>
+
+<script setup>
+import { computed } from '@vue/runtime-core';
+
+const props = defineProps({
+    tag: { type: String, required: true }
+});
+
+const title = computed(() => {
+    return props.tag === '' ? 'บทความ' : props.tag;
+});
+</script>
