@@ -11,7 +11,7 @@
             <!-- the logo -->
             <Link
                 class="inline-flex items-center"
-                href="#"
+                href="/"
             >
                 <img
                     src="/image/logo-xs.png"
@@ -65,6 +65,7 @@
                             <li
                                 v-for="(link, key) in activeSubMenu"
                                 :key="key"
+                                @click="hideSubMenu"
                             >
                                 <Link
                                     :href="link.route"
@@ -152,6 +153,7 @@
                         <li
                             v-for="(link, key) in group.menu"
                             :key="key"
+                            @click="mobileMenuVisible = !mobileMenuVisible"
                         >
                             <Link
                                 :href="link.route"
@@ -281,7 +283,7 @@ import { usePage } from '@inertiajs/inertia-vue3';
 import { ref } from '@vue/reactivity';
 import { nextTick, watch } from '@vue/runtime-core';
 
-const transparentBackground = ref(true);
+const transparentBackground = ref(false);
 
 const externalLinks = [
     { title: 'คณะแพทยศาสตร์ศิริราชพยาบาล', link: 'https://www.si.mahidol.ac.th/th/' },
@@ -353,7 +355,7 @@ const menuGroups = ref([
         subtitle: 'เป็นผู้นำทางอายุรศาสตร์โรคไตของเอเซีย',
         showMenu: false,
         menu: [
-            { label: 'ประวัติ', route: '#' },
+            { label: 'ประวัติ', route: '/history' },
             { label: 'วิสัยทัศน์และพันธกิจ', route: '#' },
             { label: 'สารจากหัวหน้าสาขาฯ', route: '#' },
             { label: 'บุลคลากร', route: '#' },
