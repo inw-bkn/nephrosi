@@ -39,6 +39,23 @@
             </li>
         </ul>
         <p class="mt-12 font-medium">
+            แพทย์ประจำบ้านต่อยอด
+        </p>
+        <ul class="text-lg p-8 space-y-4">
+            <li class="list-disc">
+                เรียงตามชั้นปี
+            </li>
+            <li class="list-disc">
+                รูปของแพทย์แต่ละท่าน เสนอให้เลือกรูปมาเอง
+            </li>
+            <li class="list-disc">
+                ชื่อ
+            </li>
+            <li class="list-disc">
+                มี link ไปยังหน้าประวัติส่วนตัวตามสมัครใจ
+            </li>
+        </ul>
+        <p class="mt-12 font-medium">
             เจ้าหน้าที่
         </p>
         <ul class="text-lg p-8 space-y-4">
