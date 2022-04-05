@@ -358,7 +358,7 @@ const menuGroups = ref([
             { label: 'ประวัติ', route: '/history' },
             { label: 'วิสัยทัศน์และพันธกิจ', route: '/vision-mission' },
             { label: 'สารจากหัวหน้าสาขาฯ', route: '/message-from-chairman' },
-            { label: 'บุลคลากร', route: '/staffs' },
+            { label: 'บุคลากร', route: '/staffs' },
             { label: 'ติดต่อเรา', route: '/contact' },
         ]
     },
