@@ -40,19 +40,13 @@
 <script setup>
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/dist/css/splide.min.css';
-import { ref } from '@vue/reactivity';
-import { onMounted } from '@vue/runtime-core';
+import { onMounted, ref } from '@vue/runtime-core';
 
-const images = ref([
-    { name: 'hero1.jpeg', center: true, right: false, left: false, animate: true },
-    { name: 'hero8.jpeg', center: true, right: false, left: false, animate: false },
-    { name: 'hero2.jpeg', center: true, right: false, left: false, animate: false },
-    { name: 'hero3.jpeg', center: false, right: true, left: false, animate: false },
-    { name: 'hero4.jpeg', center: true, right: false, left: false, animate: false },
-    { name: 'hero7.jpeg', center: true, right: false, left: false, animate: false },
-    { name: 'hero5.jpeg', center: true, right: false, left: false, animate: false },
-    { name: 'hero6.jpeg', center: true, right: false, left: false, animate: false },
-]);
+const props = defineProps({
+    images: { type: Array, required: true }
+});
+
+const slides = ref([...props.images]);
 
 onMounted(() => {
     let splide = new Splide( '#hero-slides-container' , {
@@ -66,8 +60,8 @@ onMounted(() => {
     }).mount();
 
     splide.on( 'move', (newIndex, prevIndex) => {
-        images.value[newIndex].animate = true;
-        setTimeout(() => images.value[prevIndex].animate = false, 5000);
+        slides.value[newIndex].animate = true;
+        setTimeout(() => slides.value[prevIndex].animate = false, 5000);
     });
 });
 </script>

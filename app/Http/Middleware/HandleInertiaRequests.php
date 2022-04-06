@@ -51,6 +51,8 @@ class HandleInertiaRequests extends Middleware
                 'name' => '',
                 'payload' => null,
             ],
+            'externalLinks' => config('demo.externalLinks'),
+            'menuGroups' => config('demo.menuGroups'),
         ]);
     }
 }

@@ -118,17 +118,10 @@
 </template>
 
 <script setup>
-import { ref } from '@vue/reactivity';
 import ArticleSectionHeader from '@/Components/Helpers/ArticleSectionHeader';
 
 defineProps({
-    useTruncate: { type: Boolean }
+    news: { type: Array, required: true },
+    useTruncate: { type: Boolean },
 });
-
-const news = ref([
-    { img: 'news2.jpeg', route: '/articles/สารจากหัวหน้าสาขาวิชาวักกะวิทยา ศิริราชพยาบาล', d: 14, m: 'FEB', y: 2022, title: 'สารจากหัวหน้าสาขาวิชาวักกะวิทยา ศิริราชพยาบาล', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-    { img: 'news1-1.jpeg', route: '/articles/รับสมัครเฟลโลว์อนุสาขาอายุรศาสตร์โรตไต ประจำปีการศึกษา 2566', d: 25, m: 'JAN', y: 2022, title: 'รับสมัครเฟลโลว์อนุสาขาอายุรศาสตร์โรตไต ประจำปีการศึกษา 2566', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-    { img: 'news3.jpeg', route: '/articles/เจ้าหน้าที่สาขาฯ รับรางวัลคนดีศรีอายุรศาสตร์ประจำปี 2564', d: '07', m: 'DEC', y: 2021, title: 'เจ้าหน้าที่สาขาฯ รับรางวัลคนดีศรีอายุรศาสตร์ประจำปี 2564', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-    { img: 'news4.jpeg', route: '/articles/อาจารย์ประจำสาขาฯ รับตำแหน่งนายกสมาคมคนนอนดูซีรีย์อยู่บ้าน', d: 11, m: 'NOV', y: 2021, title: 'อาจารย์ประจำสาขาฯ รับตำแหน่งนายกสมาคมคนนอนดูซีรีย์อยู่บ้าน', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore, quos quae numquam eaque magni ea quisquam cupiditate. Tempore soluta vero, quisquam a unde ullam? Expedita reiciendis commodi nam repudiandae.' },
-]);
 </script>
