@@ -1,22 +1,28 @@
 <template>
     <Head title="Nephr@SI" />
-    <HeroSection data-aos="fade-down" />
+
+    <HeroSection
+        data-aos="fade-down"
+        :images="heroSlides"
+    />
 
     <NewsSection
         class="mt-16 md:mt-24 xl:mt-32"
         data-aos="fade-up"
         :use-truncate="useTruncate"
+        :news="news"
     />
 
     <ArticleSection
         class="bg-gray-100 mt-16 md:mt-24 xl:mt-32 md:pt-24 xl:pt-32"
         data-aos="fade-up"
         :use-truncate="useTruncate"
+        :articles="articles"
     />
 
-    <!-- info section -->
+    <!-- highlight section -->
     <section class="bg-topography px-4 py-8 space-y-8 md:p-24 md:space-y-24 xl:p-32 xl:pt-0 xl:grid grid-cols-3 gap-x-8">
-        <InfoCard
+        <HighlightCard
             image="info1.jpeg"
             animate="zoom-in-up"
             link="/vision-mission"
@@ -27,8 +33,8 @@
             <div class="text-xl  font-thin mt-4">
                 เป็นผู้นำทางอายุรศาสตร์โรคไต <br class="sm:hidden"><span class="font-medium">ของเอเซีย</span>
             </div>
-        </InfoCard>
-        <InfoCard
+        </HighlightCard>
+        <HighlightCard
             image="info2.jpeg"
             animate="zoom-in"
             link="/training-programs"
@@ -42,8 +48,8 @@
             <div class="text-xl font-thin mt-4">
                 พยาบาลไตเทียม
             </div>
-        </InfoCard>
-        <InfoCard
+        </HighlightCard>
+        <HighlightCard
             image="info3.jpeg"
             animate="zoom-in-down"
             link="/articles?tag=ความรู้สำหรับประชาชน"
@@ -54,7 +60,7 @@
             <div class="text-xl font-thin mt-4">
                 โรคไตเรื้อรัง การบำบัดทดแทนไต อาหารและยา
             </div>
-        </InfoCard>
+        </HighlightCard>
     </section>
 
     <!-- stat section -->
@@ -94,25 +100,21 @@
 import HeroSection from '@/Components/Sections/HeroSection';
 import NewsSection from '@/Components/Sections/NewsSection';
 import ArticleSection from '@/Components/Sections/ArticleSection';
-import InfoCard from '@/Components/Sections/InfoCard';
+import HighlightCard from '@/Components/Sections/HighlightCard';
 import { onMounted, onUnmounted, ref } from '@vue/runtime-core';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { usePage } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
-    agent: { type: Object, required: true }
+    agent: { type: Object, required: true },
+    heroSlides: { type: Array, required: true },
+    news: { type: Array, required: true },
+    articles: { type: Array, required: true },
+    stats: { type: Array, required: true },
 });
 
 const useTruncate = ref(props.agent.browser === 'Safari');
-
-const stats = [
-    { title: 'บทความ', count: 157, animate: 'fade-right', id: 'article-count-value' },
-    { title: 'งานวิจัยตีพิมพ์', count: 278, animate: 'slide-down', id: 'publication-count-value' },
-    { title: 'เฟลโลว์', count: 117, animate: 'fade-right', id: 'fellow-count-value' },
-    { title: 'Renal Biopsy', count: 3401, animate: 'slide-down', id: 'biopsy-count-value' },
-    { title: 'Kidney Transplant', count: 1602, animate: 'fade-right', id: 'kt-count-value' },
-];
 
 const handleScrollToggleNavBg = () => {
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);

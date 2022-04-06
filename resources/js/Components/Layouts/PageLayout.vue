@@ -283,16 +283,14 @@ import { usePage } from '@inertiajs/inertia-vue3';
 import { ref } from '@vue/reactivity';
 import { nextTick, watch } from '@vue/runtime-core';
 
-const transparentBackground = ref(false);
+const props = defineProps({
+    menuGroups: { type: Array, required: true},
+    externalLinks: { type: Array, required: true},
+});
 
-const externalLinks = [
-    { title: 'คณะแพทยศาสตร์ศิริราชพยาบาล', link: 'https://www.si.mahidol.ac.th/th/' },
-    { title: 'สมาคมโรคไตแห่งประเทศไทย', link: 'https://www.nephrothai.org/' },
-    { title: 'สมาคมปลูกถ่ายอวัยวะแห่งประเทศไทย', link: 'https://transplantthai.org/' },
-    { title: 'Thai GN Registry', link: 'https://thaignregistry.org/home' },
-    { title: 'Thai KDPI EPTS calculator', link: 'https://www.thai-kdpi-epts.org/' },
-    { title: 'Thai cPRA calculator', link: 'https://thai-cpra.org/test' },
-];
+const transparentBackground = ref(false);
+const mobileMenuVisible = ref(false);
+const desktopMenuVisible = ref(false);
 
 watch(
     () => usePage().props.value.event.fire,
@@ -310,19 +308,32 @@ watch(
     }
 );
 
+const activeMenuTitle = ref(null);
+const activeSubMenu = ref(null);
+const activeSubtitle = ref(null);
+
 const showSubMenu = (title) => {
     transparentBackground.value = false;
     desktopMenuVisible.value = true;
     activeMenuTitle.value = title;
-    let activeMenu = menuGroups.value.find(menu => menu.title === title);
+    let activeMenu = props.menuGroups.find(menu => menu.title === title);
     activeSubMenu.value = [...activeMenu.menu];
     activeSubtitle.value = activeMenu.subtitle;
 };
 
+let oldPageY = 0;
+let pageY = 0;
+if (usePage().props.value.agent.isDesktop) {
+    document.addEventListener('mousemove', (e) => {
+        oldPageY = pageY;
+        pageY = e.pageY;
+    });
+}
+
 const hideSubMenu = () => {
     nextTick(() => {
         if (oldPageY > pageY) {
-            return;
+            return; // do nothing if mouse leave in up direction
         }
         activeMenuTitle.value = null;
         desktopMenuVisible.value = false;
@@ -330,73 +341,6 @@ const hideSubMenu = () => {
         activeSubtitle.value = null;
     });
 };
-
-
-let oldPageY = 0;
-let pageY = 0;
-if (usePage().props.value.agent.isDesktop) {
-
-    document.addEventListener('mousemove', (e) => {
-        oldPageY = pageY;
-        pageY = e.pageY;
-    });
-}
-
-const mobileMenuVisible = ref(false);
-const desktopMenuVisible = ref(false);
-const activeMenuTitle = ref(null);
-const activeSubMenu = ref(null);
-const activeSubtitle = ref(null);
-
-
-const menuGroups = ref([
-    {
-        title: 'เกี่ยวกับเรา',
-        subtitle: 'เป็นผู้นำทางอายุรศาสตร์โรคไตของเอเซีย',
-        showMenu: false,
-        menu: [
-            { label: 'ประวัติ', route: '/history' },
-            { label: 'วิสัยทัศน์และพันธกิจ', route: '/vision-mission' },
-            { label: 'สารจากหัวหน้าสาขาฯ', route: '/message-from-chairman' },
-            { label: 'บุคลากร', route: '/staffs' },
-            { label: 'ติดต่อเรา', route: '/contact' },
-        ]
-    },
-    {
-        title: 'การศึกษาและบริการ',
-        subtitle: 'ผลิตอายุรแพทย์โรคไตให้มีคุณภาพ มีความรู้ความชำนาญในวิชาชีพ มีคุณธรรม กอปรด้วยจริยธรรมที่ดีงาม และเป็นสากล',
-        showMenu: false,
-        menu: [
-            { label: 'สมัครเรียน', route: '/admission' },
-            { label: 'โครงการฝึกอบรม', route: '/training-programs' },
-            { label: 'วิชาการ', route: '/academic-service' },
-            { label: 'คลินิก', route: '/clinics' },
-            { label: 'Club Nephro', route: '/club-nephro' },
-        ]
-    },
-    {
-        title: 'งานวิจัย',
-        subtitle: 'สร้างสรรค์งานวิจัย เพื่อความ เป็นเลิศทางด้านโรคไต เพื่อก่อให้เกิดประโยชน์สูงสุดต่อระบบสาธารณสุขของประเทศไทย',
-        showMenu: false,
-        menu: [
-            { label: 'งานวิจัยที่กำลังดำเนินการ', route: '/research/งานวิจัยที่กำลังดำเนินการ' },
-            { label: 'ผลงานวิจัยตีพิมพ์', route: '/research/ผลงานวิจัยตีพิมพ์' },
-        ]
-    },
-    {
-        title: 'ความรู้สำหรับประชาชน',
-        subtitle: 'ส่งเสริมสุขภาพ โดยยึดผู้ป่วยเป็นศูนย์กลาง บนพื้นฐานของการดูแลแบบองค์รวม',
-        showMenu: false,
-        menu: [
-            { label: 'ความรู้เรื่องโรคไต', route: '/articles?tag=ความรู้เรื่องโรคไต' },
-            { label: 'โรคไตวายเรื้อรัง', route: '/articles?tag=โรคไตวายเรื้อรัง' },
-            { label: 'การเจาะไต', route: '/articles?tag=การเจาะไต' },
-            { label: 'การฟอกเลือดด้วยเครื่องไตเทียม', route: '/articles?tag=การฟอกเลือดด้วยเครื่องไตเทียม' },
-            { label: 'การล้างไตทางหน้าท้อง', route: '/articles?tag=การล้างไตทางหน้าท้อง' },
-            { label: 'การปลูกถ่ายไต', route: '/articles?tag=การปลูกถ่ายไต' },
-        ]
-    }
-]);
 </script>
 
 <style scoped>
